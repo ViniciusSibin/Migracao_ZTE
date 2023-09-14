@@ -100,7 +100,6 @@ body{
 }
 
 .formulario-extra {
-    display:none;
     margin: 0 auto;
     padding: 0px 20px;
     border-radius: 10px;
@@ -173,7 +172,6 @@ body{
     }
 
 .confirmacao-envio{
-    display:none;/*tem q ser flex*/
     padding: 0px 20px 20px 20px;
 }
     .confirmacao-envio h1{
@@ -184,7 +182,8 @@ body{
         padding-left: 10px;
         width: 40px;
     }
-    
+
+
 @media(width < 1070px){
     .confirmacao-envio h1{
         font-size: 16px;

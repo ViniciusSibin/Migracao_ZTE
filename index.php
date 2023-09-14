@@ -1,17 +1,35 @@
 <?php
-if(!empty($_POST) && !empty($_FILES)) {
+if(!empty($_POST)) {
     //Obtendo o diretório do arquivo de origem
-    $arquivoOrigemFiles = $_FILES['arquivoOrigem']; 
-    $caminhoArquivoOrigem = $arquivoOrigemFiles['tmp_name'];
+    if(isset($_FILES['arquivoOrigem'])){
+        $arquivoOrigemFiles = $_FILES['arquivoOrigem']; 
+        $caminhoArquivoOrigem = $arquivoOrigemFiles['tmp_name'];
 
-    $nomeArquivoDestino = $_POST['nome_arquivo'];
+        //Abrindo o arquivo de origem
+        $arquivoOrigem = fopen($caminhoArquivoOrigem, "r");
+    }
+    
+    $oltOrigem = $_POST['nome_olt_origem'];
+    $nomeArquivoDestino = $_POST['nome_arquivo_destino'];
     $fabricante = $_POST['fabricante'];
    
-    $arquivoOrigem = fopen($caminhoArquivoOrigem, "r");
-    $arquivoDestino = fopen("Arquivos/$fabricante/Script_$nomeArquivoDestino.txt", "w");
+    
 
-    if ($arquivoOrigem) {
-        $onuCompleta = array();
+    //Verificando se existe o diretório para a OLT escolhida
+    $diretorio = "Arquivos/$fabricante/$oltOrigem";
+
+    if (!file_exists($diretorio)) {
+        // Tenta criar o diretório com permissões 0755 (permissões padrão, você pode alterá-las conforme necessário)
+        mkdir($diretorio, 0755);
+    } 
+
+    $arquivoDestino = fopen($diretorio . "/Script_$nomeArquivoDestino.txt", "a");
+
+    if (isset($arquivoOrigem) && $arquivoOrigem) {
+        $UsuariosOnusCompletas = array();
+        $OnusCompletas = array();
+        $finalizado = False;
+        
         // Lê o conteúdo do arquivo
         $conteudo = fread($arquivoOrigem, filesize($caminhoArquivoOrigem));
         fclose($arquivoOrigem);
@@ -37,31 +55,62 @@ if(!empty($_POST) && !empty($_FILES)) {
             $usuario = trim($usuario);
 
             //Monta o script com as insformações do usuário
-            $script = "conf t\ninterface gpon_olt-$pon\nonu $id type F601 sn $sn\nexit\ninterface gpon_onu-$pon:$id\nname $usuario\nvport-mode manual\nvport 1 map-type vlan\ntcont 1 profile 1G\ngemport 1 tcont 1\nvport-map 1 1 vlan 301\nexit\ninterface vport-$pon.$id:1\nservice-port 1 user-vlan 301 vlan 301\nexit\npon-onu-mng gpon_onu-$pon:$id\nservice 1 gemport 1 vlan 301\n";
+            $script = "conf t\ninterface gpon_olt-$pon\nonu $id type F601 sn $sn\nexit\ninterface gpon_onu-$pon:$id\nname $usuario\nvport-mode manual\nvport 1 map-type vlan\ntcont 1 profile 1G\ngemport 1 tcont 1\nvport-map 1 1 vlan 301\nexit\ninterface vport-$pon.$id:1\nservice-port 1 user-vlan 301 vlan 301\nexit\npon-onu-mng gpon_onu-$pon:$id\nservice 1 gemport 1 vlan 301\nvlan port eth_0/1 mode tag vlan 301\nend\nwrite\n\n---------------------------------------------------------\n\n\n";
 
             if(strpos($sn, "MKP") !== false){
-                $onuCompleta = $usuario;
-                $SenhaPPPOE = solicitaDados($usuario, "senha do PPPOE");
-                $usuarioWIFI = solicitaDados($usuario, "nome de WI-FI");
-                $senhaWIFI = solicitaDados($usuario, "senha do WI-FI");            
-
-                $script .= "wan-ip 1 ipv4 mode pppoe username $usuario password $SenhaPPPOE vlan-profile 301 host 1\nsecurity-mgmt 1 state enable mode forward ingress-type iphost 1 protocol web\nssid auth wpa wifi_0/2 key $senhaWIFI\nssid ctrl wifi_0/2 name MGP_$usuarioWIFI\nssid auth wpa wifi_0/6 key $senhaWIFI\nssid ctrl wifi_0/6 name MGP_" . $usuarioWIFI . "_5G\n";
-            } else {
-                $script .= "vlan port eth_0/1 mode tag vlan 301\n";
-            }
-
-            $script .= "end\nwrite\n\n---------------------------------------------------------\n\n\n";
-            
+                $UsuariosOnusCompletas[] = $usuario; 
+                $OnusCompletas[] = "$pon,$id,$sn,$usuario";        
+                continue;
+            } 
+          
             fwrite($arquivoDestino, $script);
-            
-            if(!empty($onuCompleta)){
-                echo "<script>alert('Por favor preencha o formulário das onus completas!!!');</script>";
-            }
+        }
+
+        if(count($OnusCompletas) > 0){
+            echo "<script>alert('Por favor preencha o formulário das onus completas!!!');</script>";
+        } else {
+            $finalizado = True;
         }
     }
 
-    if($_POST['onuCompleta']){
-        $script = "conf t\ninterface gpon_olt-$pon\nonu $id type F601 sn $sn\nexit\ninterface gpon_onu-$pon:$id\nname $usuario\nvport-mode manual\nvport 1 map-type vlan\ntcont 1 profile 1G\ngemport 1 tcont 1\nvport-map 1 1 vlan 301\nexit\ninterface vport-$pon.$id:1\nservice-port 1 user-vlan 301 vlan 301\nexit\npon-onu-mng gpon_onu-$pon:$id\nservice 1 gemport 1 vlan 301\nwan-ip 1 ipv4 mode pppoe username $usuario password $SenhaPPPOE vlan-profile 301 host 1\nsecurity-mgmt 1 state enable mode forward ingress-type iphost 1 protocol web\nssid auth wpa wifi_0/2 key $senhaWIFI\nssid ctrl wifi_0/2 name MGP_$usuarioWIFI\nssid auth wpa wifi_0/6 key $senhaWIFI\nssid ctrl wifi_0/6 name MGP_" . $usuarioWIFI . "_5G\nend\nwrite\n\n---------------------------------------------------------\n\n\n";
+    if(isset($_POST['onuCompleta'])){
+        $OnusCompletas = $_POST['OnusCompletas'];
+        foreach($OnusCompletas as $dados){
+            $parts = explode(",", $dados);
+    
+            // Atribui as partes às variáveis
+            $pon = $parts[0];
+            $id = $parts[1];
+            $sn = $parts[2];
+            $usuarioOnuCompleta = $parts[3];
+            
+
+            foreach($_POST as $loginUsuarios => $informacoesWIFI){
+                $loginUsuario = str_replace("_", ".", $loginUsuarios);
+                if($usuarioOnuCompleta == $loginUsuario){
+
+                    $SenhaPPPOE = $informacoesWIFI[0];
+                    $usuarioWIFI = $informacoesWIFI[1];
+                    $senhaWIFI = $informacoesWIFI[2];
+
+                    echo "<script>console.log('$SenhaPPPOE - $usuarioWIFI - $senhaWIFI');</script>";
+
+                    $script = "conf t\ninterface gpon_olt-$pon\nonu $id type F601 sn $sn\nexit\ninterface gpon_onu-$pon:$id\nname $usuarioOnuCompleta\nvport-mode manual\nvport 1 map-type vlan\ntcont 1 profile 1G\ngemport 1 tcont 1\nvport-map 1 1 vlan 301\nexit\ninterface vport-$pon.$id:1\nservice-port 1 user-vlan 301 vlan 301\nexit\npon-onu-mng gpon_onu-$pon:$id\nservice 1 gemport 1 vlan 301\nwan-ip 1 ipv4 mode pppoe username $usuarioOnuCompleta password $SenhaPPPOE vlan-profile 301 host 1\nsecurity-mgmt 1 state enable mode forward ingress-type iphost 1 protocol web\nssid auth wpa wifi_0/2 key $senhaWIFI\nssid ctrl wifi_0/2 name MGP_$usuarioWIFI\nssid auth wpa wifi_0/5 key $senhaWIFI\nssid ctrl wifi_0/5 name MGP_" . $usuarioWIFI . "_5G\nend\nwrite\n\n---------------------------------------------------------\n\n\n";
+
+                    //Escreve as novas informações no arquivo
+                    fwrite($arquivoDestino, $script);
+                }
+            }
+        }
+
+        $arquivoFinalizado = fread($arquivoDestino, filesize($caminhoArquivoOrigem));    
+        $finalizado = True;
+        
+    }
+    
+    if(isset($finalizado) && $finalizado === True){
+
+        $confirmaFinalizacao = True;
     }
 }
 ?>
@@ -84,11 +133,12 @@ if(!empty($_POST) && !empty($_FILES)) {
             <h1>Migração para OLT ZTE</h1>
         </div>
         <form action="" method="post" enctype="multipart/form-data" class="formulario-form">
+            <label>Nome da OLT de origem: </label>
+            <input type="text" name="nome_olt_origem" placeholder="OLT DATACOM IGUA">
             <label>Nome do arquivo de destino: </label>
-            <input type="text" name="nome_arquivo" placeholder="<Equip_Origem>_<PON>">
+            <input type="text" name="nome_arquivo_destino" placeholder="<Equip_Origem>_<PON>">
             <label>Selecione o fabricante da OLT de Origem:</label>
             <select name="fabricante">
-                <option value="" disabled selected>Selecione aqui</option>
                 <option value="DATACOM">DATACOM</option>
                 <option value="FIBERHOME">FIBERHOME</option>
                 <option value="INTELBRAS">INTELBRAS</option>
@@ -109,19 +159,48 @@ if(!empty($_POST) && !empty($_FILES)) {
             <!--Parte inicial-->
         </div>
 
-        <div class="confirmacao-envio">
+        <div class="confirmacao-envio"  style='display:<?php if(isset($confirmaFinalizacao) && $confirmaFinalizacao) {echo "flex;";} else { echo "none"; } ?>'>
             <h1>Informações cadastradas com sucesso!</h1>
             <img src="Assets/img/icones/confirme.png" alt="Icone confirmação">
         </div>
         
-        <form action="" method="post" class="formulario-extra">
-            <div class="container-usuario">
-                <h3>Usuário: <span>user aqui</span></h3>
-                <input type="password" name="senha_pppoe" placeholder="Digite a senha PPPoE" required>
-                <input type="text" name="ssid_wifi" placeholder="Digite o SSID do Wi-Fi" required>
-                <input type="password" name="senha_wifi" placeholder="Digite a senha do Wi-Fi" required>
-            </div><!--Repetir essa div-->
-            <input type="submit" value="Enviar">
+        <?php if(isset($confirmaFinalizacao) && $confirmaFinalizacao) { 
+                $oltOrigem = $_POST['nome_olt_origem'];
+                $fabricante = $_POST['fabricante'];
+            
+                //Verificando se existe o diretório para a OLT escolhida
+                $diretorio = "Arquivos/$fabricante/$oltOrigem";
+                $arquivoDestino = fopen($diretorio . "/Script_$nomeArquivoDestino.txt", "r");
+                $arquivoFinalizado = fread($arquivoDestino, filesize($diretorio . "/Script_$nomeArquivoDestino.txt"));
+                $arquivoFinalizado = str_replace("\n", "<br>", $arquivoFinalizado);
+                ?> 
+            <p><?php echo $arquivoFinalizado;  ?></p>
+
+            
+            <a href="<?php echo $diretorio . "/Script_$nomeArquivoDestino.txt"; ?>" download="<?php echo "Script_$nomeArquivoDestino.txt" ?>">Download do Arquivo</a>
+
+        <?php } ?>
+
+        <form action="" method="post" enctype="multipart/form-data" class="formulario-extra" style='display:<?php if(isset($UsuariosOnusCompletas) && count($UsuariosOnusCompletas) > 0) { echo "block";} else { echo "none"; } ?>'>
+            <?php foreach($UsuariosOnusCompletas as $onu){ ?>
+                <div class="container-usuario">
+                    <h3>Usuário: <span><?php echo $onu; ?></span></h3>
+                    <input type="text" name="<?php echo $onu ?>[]" placeholder="Digite a senha PPPoE" required>
+                    <input type="text" name="<?php echo $onu ?>[]" placeholder="Digite o SSID do Wi-Fi" required>
+                    <input type="text" name="<?php echo $onu ?>[]" placeholder="Digite a senha do Wi-Fi" required>
+                </div><!--Repetir essa div-->
+            <?php } ?>
+            <input type="hidden" name="nome_olt_origem" value="<?php if(isset($_POST['nome_olt_origem'])) echo $_POST['nome_olt_origem'] ?>">
+            <input type="hidden" name="nome_arquivo_destino" value="<?php if(isset($_POST['nome_arquivo_destino'])) echo $_POST['nome_arquivo_destino'] ?>">
+            <input type="hidden" name="fabricante" value="<?php if(isset($_POST['fabricante'])) echo $_POST['fabricante'] ?>">
+            <?php
+                if (isset($OnusCompletas) && is_array($OnusCompletas)) {
+                    foreach ($OnusCompletas as $valor) {
+                        echo '<input type="hidden" name="OnusCompletas[]" value="' . htmlspecialchars($valor) . '">';
+                    }
+                }
+            ?>
+            <input type="submit" value="Enviar" name="onuCompleta">
         </form>
    </div>
 </body>

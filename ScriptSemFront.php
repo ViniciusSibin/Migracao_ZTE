@@ -41,7 +41,7 @@ if ($arquivoOrigem) {
             echo "Digite a senha de WI-FI para o usuário $usuario: ";
             $senhaWIFI = trim(fgets(STDIN));
 
-            $script .= "wan-ip 1 ipv4 mode pppoe username $usuario password $SenhaPPPOE vlan-profile 301 host 1\nsecurity-mgmt 1 state enable mode forward ingress-type iphost 1 protocol web\nssid auth wpa wifi_0/2 key $senhaWIFI\nssid ctrl wifi_0/2 name MGP_$usuarioWIFI\nssid auth wpa wifi_0/6 key $senhaWIFI\nssid ctrl wifi_0/6 name MGP_" . $usuarioWIFI . "_5G\n";
+            $script .= "wan-ip 1 ipv4 mode pppoe username $usuario password $SenhaPPPOE vlan-profile 301 host 1\nsecurity-mgmt 1 state enable mode forward ingress-type iphost 1 protocol web\nssid auth wpa wifi_0/2 key $senhaWIFI\nssid ctrl wifi_0/2 name MGP_$usuarioWIFI\nssid auth wpa wifi_0/5 key $senhaWIFI\nssid ctrl wifi_0/5 name MGP_" . $usuarioWIFI . "_5G\n";
         } else {
             $script .= "vlan port eth_0/1 mode tag vlan 301\n";
         }
