@@ -1,0 +1,211 @@
+*{
+    box-sizing: border-box;
+    margin:0px;
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    display:flex;
+    color: var(--cor-fonte);
+}
+
+:root{
+    --cor-primaria: #0e1117;
+    --cor-secundaria: #282a36;
+    --cor-secundaria-hover: #363841;
+    --cor-fonte: #f4f4f4;
+    --transicao-padrao: 0.1s all linear;
+}
+
+.formulario-container{
+    padding: 20px;
+    background-color: var(--cor-primaria);
+    width: 50%;
+    height: 100vh;
+}
+
+.formulario-topo{
+    padding:20px;
+    display:flex;
+    color: var(--cor-fonte);
+}
+    .formulario-topo img{
+        width:130px;
+    }
+    .formulario-topo h1{
+        margin: auto;
+        font-weight: 100;
+        font-size: 26px;
+        border-bottom: 1px solid green;
+    }
+
+.formulario-form {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.formulario-form label {
+    margin-top: 20px;
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.formulario-form input[type="text"],
+.formulario-form select,
+.formulario-form input[type="file"] {
+    color: var(--cor-fonte);
+    background-color: var(--cor-secundaria);
+    width: 100%;
+    padding: 10px;
+    border: none;
+    font-size: 18px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    outline: none;
+}
+
+.formulario-form input[type="text"]:focus,
+.formulario-form select:focus,
+.formulario-form input[type="file"]:focus{
+    background-color: var(--cor-secundaria-hover);
+}
+
+.formulario-form input[type="submit"] {
+    transition: var(--transicao-padrao);
+    margin-top: 20px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 15px;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.formulario-form input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+
+/*Container de confirmação*/
+
+.confirmacao-container{
+    overflow-y: scroll;
+    background-color: var(--cor-secundaria);
+    width: 50%;
+    height: 100vh;
+    padding: 20px;
+}
+
+.formulario-extra {
+    display:none;
+    margin: 0 auto;
+    padding: 0px 20px;
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+}
+
+.formulario-extra h3{
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+.formulario-extra label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.formulario-extra input[type="password"],
+.formulario-extra input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border:none;
+    border-radius: 5px;
+    outline: none;
+}
+
+.formulario-extra input[type="password"]:focus,
+.formulario-extra input[type="text"]:focus{
+    background-color: #ccc;
+} 
+
+.formulario-extra input[type="submit"] {
+    margin-top: 20px;
+    transition: var(--transicao-padrao);
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 25px;
+    border: none;
+    font-size: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.formulario-extra input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+.container-usuario{
+    border: 1px solid #888;
+    border-radius: 7px;
+    padding: 13px;
+    margin-bottom: 10px;
+}
+
+.confirmacao-topo{
+    padding:20px;
+    color: var(--cor-fonte);
+}
+    .confirmacao-topo img{
+        width:130px;
+    }
+    .confirmacao-topo h1{
+        font-weight: 100;
+        margin: auto;
+        font-size: 26px;
+        border-bottom: 1px solid green;
+    }
+    .confirmacao-topo p{
+        display:flex;
+        padding-top: 10px;
+    }
+
+.confirmacao-envio{
+    display:none;/*tem q ser flex*/
+    padding: 0px 20px 20px 20px;
+}
+    .confirmacao-envio h1{
+        font-weight: 100;
+        font-size: 24px;
+    }
+    .confirmacao-envio img{
+        padding-left: 10px;
+        width: 40px;
+    }
+    
+@media(width < 1070px){
+    .confirmacao-envio h1{
+        font-size: 16px;
+    }
+}
+
+@media(width < 760px){
+    body{
+        display:block;
+    }
+    .formulario-container{
+        width: 100%;
+    }
+    .confirmacao-container{
+        width: 100%;
+    }
+    .formulario-topo{
+        flex-direction: column;
+    }
+    .formulario-form{
+        padding: 10px;
+        margin: 0px;
+    }
+}
