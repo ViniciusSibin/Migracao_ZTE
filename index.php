@@ -191,17 +191,10 @@ if(!empty($_POST)) {
 
                         <p><?php echo $arquivoFinalizado; ?></p>
 
-                        <button><a href="<?php echo $arquivoPath; ?>" download="<?php echo $nomeArquivoDestino; ?>">Download do Arquivo</a></button>
+            
+            <a class="download-arquivo" href="<?php echo $diretorio . "/Script_$nomeArquivoDestino.txt"; ?>" download="<?php echo "Script_$nomeArquivoDestino.txt" ?>">Download do Arquivo</a>
 
-                        <?php
-                    } else {
-                        echo "O arquivo não foi encontrado.";
-                    }
-                } else {
-                    echo "O diretório não foi encontrado.";
-                }
-            }
-        ?>
+        <?php } ?>
 
         <form action="" method="post" enctype="multipart/form-data" class="formulario-extra" style='display:<?php if(isset($UsuariosOnusCompletas) && count($UsuariosOnusCompletas) > 0) { echo "block";} else { echo "none"; } ?>'>
             <?php foreach($UsuariosOnusCompletas as $onu){ ?>
