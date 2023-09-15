@@ -13,7 +13,9 @@ if(!empty($_POST)) {
     $nomeArquivoDestino = $_POST['nome_arquivo_destino'];
     $fabricante = $_POST['fabricante'];
    
-    
+    //Substitui espaços pos underline
+    $oltOrigem = str_replace(" ", "_", $oltOrigem);
+    $nomeArquivoDestino = str_replace(" ", "_", $nomeArquivoDestino);
 
     //Verificando se existe o diretório para a OLT escolhida
     $diretorio = "Arquivos/$fabricante/$oltOrigem";
@@ -95,7 +97,7 @@ if(!empty($_POST)) {
 
                     echo "<script>console.log('$SenhaPPPOE - $usuarioWIFI - $senhaWIFI');</script>";
 
-                    $script = "conf t\ninterface gpon_olt-$pon\nonu $id type F601 sn $sn\nexit\ninterface gpon_onu-$pon:$id\nname $usuarioOnuCompleta\nvport-mode manual\nvport 1 map-type vlan\ntcont 1 profile 1G\ngemport 1 tcont 1\nvport-map 1 1 vlan 301\nexit\ninterface vport-$pon.$id:1\nservice-port 1 user-vlan 301 vlan 301\nexit\npon-onu-mng gpon_onu-$pon:$id\nservice 1 gemport 1 vlan 301\nwan-ip 1 ipv4 mode pppoe username $usuarioOnuCompleta password $SenhaPPPOE vlan-profile 301 host 1\nsecurity-mgmt 1 state enable mode forward ingress-type iphost 1 protocol web\nssid auth wpa wifi_0/2 key $senhaWIFI\nssid ctrl wifi_0/2 name MGP_$usuarioWIFI\nssid auth wpa wifi_0/5 key $senhaWIFI\nssid ctrl wifi_0/5 name MGP_" . $usuarioWIFI . "_5G\nend\nwrite\n\n---------------------------------------------------------\n\n\n";
+                    $script = "conf t\ninterface gpon_olt-$pon\nonu $id type F6600P sn $sn\nexit\ninterface gpon_onu-$pon:$id\nname $usuarioOnuCompleta\nvport-mode manual\nvport 1 map-type vlan\ntcont 1 profile 1G\ngemport 1 tcont 1\nvport-map 1 1 vlan 301\nexit\ninterface vport-$pon.$id:1\nservice-port 1 user-vlan 301 vlan 301\nexit\npon-onu-mng gpon_onu-$pon:$id\nservice 1 gemport 1 vlan 301\nwan-ip 1 ipv4 mode pppoe username $usuarioOnuCompleta password $SenhaPPPOE vlan-profile 301 host 1\nsecurity-mgmt 1 state enable mode forward ingress-type iphost 1 protocol web\nssid auth wpa wifi_0/2 key $senhaWIFI\nssid ctrl wifi_0/2 name MGP_$usuarioWIFI\nssid auth wpa wifi_0/5 key $senhaWIFI\nssid ctrl wifi_0/5 name MGP_" . $usuarioWIFI . "_5G\nend\nwrite\n\n---------------------------------------------------------\n\n\n";
 
                     //Escreve as novas informações no arquivo
                     fwrite($arquivoDestino, $script);
@@ -135,8 +137,9 @@ if(!empty($_POST)) {
             <input type="text" name="nome_olt_origem" placeholder="OLT DATACOM IGUA">
             <label>Nome do arquivo de destino: </label>
             <input type="text" name="nome_arquivo_destino" placeholder="<Equip_Origem>_<PON>">
-            <label>Selecione o fabricante da OLT de Origem:</label>
-            <select name="fabricante">
+            <label class="label-fabricante">Selecione o fabricante da OLT de Origem:</label>
+            <label class="label-vlan">VLAN:</label>
+            <select name="fabricante" class="olt_origem">
                 <option value="DATACOM">DATACOM</option>
                 <option value="FIBERHOME">FIBERHOME</option>
                 <option value="INTELBRAS">INTELBRAS</option>
@@ -145,6 +148,7 @@ if(!empty($_POST)) {
                 <option value="HUAWEI">HUAWEI</option>
                 <option value="ZTE">ZTE</option>
             </select>
+            <input type="text" class="vlan" name="vlan" value="301">
             <label>Selecione o backup da PON:</label>
             <input type="file" id="arquivoInput" name="arquivoOrigem">
             <input type="submit" value="Enviar">
@@ -162,22 +166,42 @@ if(!empty($_POST)) {
             <img src="Assets/img/icones/confirme.png" alt="Icone confirmação">
         </div>
         
-        <?php if(isset($confirmaFinalizacao) && $confirmaFinalizacao) { 
+        <?php 
+            if(isset($confirmaFinalizacao) && $confirmaFinalizacao) {
                 $oltOrigem = $_POST['nome_olt_origem'];
                 $fabricante = $_POST['fabricante'];
-            
-                //Verificando se existe o diretório para a OLT escolhida
+
+                $nomeArquivoDestino = "Script_$nomeArquivoDestino.txt"; // Certifique-se de definir o nome do arquivo aqui
+
+                //Substitui espaços pos underline
+                $oltOrigem = str_replace(" ", "_", $oltOrigem);
+                $nomeArquivoDestino = str_replace(" ", "_", $nomeArquivoDestino);
+
+                // Verifique se o diretório para a OLT escolhida existe
                 $diretorio = "Arquivos/$fabricante/$oltOrigem";
-                $arquivoDestino = fopen($diretorio . "/Script_$nomeArquivoDestino.txt", "r");
-                $arquivoFinalizado = fread($arquivoDestino, filesize($diretorio . "/Script_$nomeArquivoDestino.txt"));
-                $arquivoFinalizado = str_replace("\n", "<br>", $arquivoFinalizado);
-                ?> 
-            <p><?php echo $arquivoFinalizado;  ?></p>
 
-            
-            <a href="<?php echo $diretorio . "/Script_$nomeArquivoDestino.txt"; ?>" download="<?php echo "Script_$nomeArquivoDestino.txt" ?>">Download do Arquivo</a>
+                if (file_exists($diretorio) && is_dir($diretorio)) {
+                    $arquivoPath = $diretorio . "/" . $nomeArquivoDestino;
 
-        <?php } ?>
+                    // Verifique se o arquivo existe
+                    if (file_exists($arquivoPath)) {
+                        $arquivoFinalizado = file_get_contents($arquivoPath);
+                        $arquivoFinalizado = str_replace("\n", "<br>", $arquivoFinalizado);
+                        ?>
+
+                        <p><?php echo $arquivoFinalizado; ?></p>
+
+                        <button><a href="<?php echo $arquivoPath; ?>" download="<?php echo $nomeArquivoDestino; ?>">Download do Arquivo</a></button>
+
+                        <?php
+                    } else {
+                        echo "O arquivo não foi encontrado.";
+                    }
+                } else {
+                    echo "O diretório não foi encontrado.";
+                }
+            }
+        ?>
 
         <form action="" method="post" enctype="multipart/form-data" class="formulario-extra" style='display:<?php if(isset($UsuariosOnusCompletas) && count($UsuariosOnusCompletas) > 0) { echo "block";} else { echo "none"; } ?>'>
             <?php foreach($UsuariosOnusCompletas as $onu){ ?>

@@ -88,6 +88,23 @@ body{
     background-color: #0056b3;
 }
 
+.olt_origem {
+    width: 70% !important;
+}
+
+.vlan {
+    float: right;
+    width: 29% !important;
+}
+
+.label-olt-origem {
+   
+}
+
+.label-vlan {
+    
+}
+
 
 /*Container de confirmação*/
 
