@@ -101,9 +101,7 @@ if(!empty($_POST)) {
                     fwrite($arquivoDestino, $script);
                 }
             }
-        }
-
-        $arquivoFinalizado = fread($arquivoDestino, filesize($caminhoArquivoOrigem));    
+        } 
         $finalizado = True;
         
     }
