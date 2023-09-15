@@ -40,7 +40,6 @@ body{
     }
 
 .formulario-form {
-    margin-top: 20px;
     padding: 20px 20px 20px 20px;
     border-radius: 10px;
 }
@@ -73,6 +72,7 @@ body{
 }
 
 .formulario-form input[type="submit"] {
+    margin-top: 10px;
     transition: var(--transicao-padrao);
     background-color: #007bff;
     color: #fff;
