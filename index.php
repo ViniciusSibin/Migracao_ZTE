@@ -175,7 +175,7 @@ if(!empty($_POST)) {
             <p><?php echo $arquivoFinalizado;  ?></p>
 
             
-            <a href="<?php echo $diretorio . "/Script_$nomeArquivoDestino.txt"; ?>" download="<?php echo "Script_$nomeArquivoDestino.txt" ?>">Download do Arquivo</a>
+            <a class="download-arquivo" href="<?php echo $diretorio . "/Script_$nomeArquivoDestino.txt"; ?>" download="<?php echo "Script_$nomeArquivoDestino.txt" ?>">Download do Arquivo</a>
 
         <?php } ?>
 

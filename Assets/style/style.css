@@ -41,7 +41,7 @@ body{
 
 .formulario-form {
     margin-top: 20px;
-    padding: 20px;
+    padding: 20px 20px 20px 20px;
     border-radius: 10px;
 }
 
@@ -74,7 +74,6 @@ body{
 
 .formulario-form input[type="submit"] {
     transition: var(--transicao-padrao);
-    margin-top: 20px;
     background-color: #007bff;
     color: #fff;
     font-size: 15px;
@@ -183,6 +182,22 @@ body{
         width: 40px;
     }
 
+.download-arquivo{
+    text-decoration: none;
+    margin-top: 20px;
+    transition: var(--transicao-padrao);
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 25px;
+    border: none;
+    font-size: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.download-arquivo:hover{
+    background-color: #0056b3;
+}
 
 @media(width < 1070px){
     .confirmacao-envio h1{
