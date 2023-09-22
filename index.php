@@ -12,6 +12,7 @@ if(!empty($_POST)) {
     $oltOrigem = $_POST['nome_olt_origem'];
     $nomeArquivoDestino = $_POST['nome_arquivo_destino'];
     $fabricante = $_POST['fabricante'];
+    $vlan = $_POST['vlan'];
    
     //Substitui espaços pos underline
     $oltOrigem = str_replace(" ", "_", $oltOrigem);
@@ -57,13 +58,13 @@ if(!empty($_POST)) {
             $usuario = trim($usuario);
 
             //Monta o script com as insformações do usuário
-            $script = "conf t\ninterface gpon_olt-$pon\nonu $id type F601 sn $sn\nexit\ninterface gpon_onu-$pon:$id\nname $usuario\nvport-mode manual\nvport 1 map-type vlan\ntcont 1 profile 1G\ngemport 1 tcont 1\nvport-map 1 1 vlan 301\nexit\ninterface vport-$pon.$id:1\nservice-port 1 user-vlan 301 vlan 301\nexit\npon-onu-mng gpon_onu-$pon:$id\nservice 1 gemport 1 vlan 301\nvlan port eth_0/1 mode tag vlan 301\nend\nwrite\n\n---------------------------------------------------------\n\n\n";
+            $script = "conf t\ninterface gpon_olt-$pon\nonu $id type F601 sn $sn\nexit\ninterface gpon_onu-$pon:$id\nname $usuario\nvport-mode manual\nvport 1 map-type vlan\ntcont 1 profile 1G\ngemport 1 tcont 1\nvport-map 1 1 vlan $vlan\nexit\ninterface vport-$pon.$id:1\nservice-port 1 user-vlan $vlan vlan $vlan\nexit\npon-onu-mng gpon_onu-$pon:$id\nservice 1 gemport 1 vlan $vlan\nvlan port eth_0/1 mode tag vlan $vlan\nend\nwrite\n\n\n\n";
 
-            if(strpos($sn, "MKP") !== false){
+            /*if(strpos($sn, "MKP") !== false){
                 $UsuariosOnusCompletas[] = $usuario; 
                 $OnusCompletas[] = "$pon,$id,$sn,$usuario";        
                 continue;
-            } 
+            } */
           
             fwrite($arquivoDestino, $script);
         }
@@ -97,7 +98,7 @@ if(!empty($_POST)) {
 
                     echo "<script>console.log('$SenhaPPPOE - $usuarioWIFI - $senhaWIFI');</script>";
 
-                    $script = "conf t\ninterface gpon_olt-$pon\nonu $id type F6600P sn $sn\nexit\ninterface gpon_onu-$pon:$id\nname $usuarioOnuCompleta\nvport-mode manual\nvport 1 map-type vlan\ntcont 1 profile 1G\ngemport 1 tcont 1\nvport-map 1 1 vlan 301\nexit\ninterface vport-$pon.$id:1\nservice-port 1 user-vlan 301 vlan 301\nexit\npon-onu-mng gpon_onu-$pon:$id\nservice 1 gemport 1 vlan 301\nwan-ip 1 ipv4 mode pppoe username $usuarioOnuCompleta password $SenhaPPPOE vlan-profile 301 host 1\nsecurity-mgmt 1 state enable mode forward ingress-type iphost 1 protocol web\nssid auth wpa wifi_0/2 key $senhaWIFI\nssid ctrl wifi_0/2 name MGP_$usuarioWIFI\nssid auth wpa wifi_0/5 key $senhaWIFI\nssid ctrl wifi_0/5 name MGP_" . $usuarioWIFI . "_5G\nend\nwrite\n\n---------------------------------------------------------\n\n\n";
+                    $script = "conf t\ninterface gpon_olt-$pon\nonu $id type F6600P sn $sn\nexit\ninterface gpon_onu-$pon:$id\nname $usuarioOnuCompleta\nvport-mode manual\nvport 1 map-type vlan\ntcont 1 profile 1G\ngemport 1 tcont 1\nvport-map 1 1 vlan 301\nexit\ninterface vport-$pon.$id:1\nservice-port 1 user-vlan 301 vlan 301\nexit\npon-onu-mng gpon_onu-$pon:$id\nservice 1 gemport 1 vlan 301\nwan-ip 1 ipv4 mode pppoe username $usuarioOnuCompleta password $SenhaPPPOE vlan-profile 301 host 1\nsecurity-mgmt 1 state enable mode forward ingress-type iphost 1 protocol web\nssid auth wpa wifi_0/2 key $senhaWIFI\nssid ctrl wifi_0/2 name MGP_$usuarioWIFI\nssid auth wpa wifi_0/5 key $senhaWIFI\nssid ctrl wifi_0/5 name MGP_" . $usuarioWIFI . "_5G\nend\nwrite\n\n\n\n";
 
                     //Escreve as novas informações no arquivo
                     fwrite($arquivoDestino, $script);
@@ -152,6 +153,7 @@ if(!empty($_POST)) {
             <label>Selecione o backup da PON:</label>
             <input type="file" id="arquivoInput" name="arquivoOrigem">
             <input type="submit" value="Enviar">
+            <a class="download-arquivo" href="Pages/gerenciar.php">Arquivos Gerados</a>
         </form>
    </div>
    <div class="confirmacao-container">
@@ -189,10 +191,12 @@ if(!empty($_POST)) {
                         $arquivoFinalizado = str_replace("\n", "<br>", $arquivoFinalizado);
                         ?>
 
-                        <p><?php echo $arquivoFinalizado; ?></p>
+                        <p><?php echo $arquivoFinalizado; 
+                    }
+                }?></p>
 
             
-            <a class="download-arquivo" href="<?php echo $diretorio . "/Script_$nomeArquivoDestino.txt"; ?>" download="<?php echo "Script_$nomeArquivoDestino.txt" ?>">Download do Arquivo</a>
+            <a class="download-arquivo" href="<?php echo $diretorio . "/$nomeArquivoDestino"; ?>" download="<?php echo "$nomeArquivoDestino" ?>">Download do Arquivo</a>
 
         <?php } ?>
 
@@ -208,6 +212,7 @@ if(!empty($_POST)) {
             <input type="hidden" name="nome_olt_origem" value="<?php if(isset($_POST['nome_olt_origem'])) echo $_POST['nome_olt_origem'] ?>">
             <input type="hidden" name="nome_arquivo_destino" value="<?php if(isset($_POST['nome_arquivo_destino'])) echo $_POST['nome_arquivo_destino'] ?>">
             <input type="hidden" name="fabricante" value="<?php if(isset($_POST['fabricante'])) echo $_POST['fabricante'] ?>">
+            <input type="hidden" name="vlan" value="<?php if(isset($_POST['vlan'])) echo $_POST['vlan'] ?>">
             <?php
                 if (isset($OnusCompletas) && is_array($OnusCompletas)) {
                     foreach ($OnusCompletas as $valor) {
