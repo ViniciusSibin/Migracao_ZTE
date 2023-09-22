@@ -40,7 +40,6 @@ body{
     }
 
 .formulario-form {
-    padding: 20px 20px 20px 20px;
     border-radius: 10px;
 }
 
@@ -87,23 +86,20 @@ body{
     background-color: #0056b3;
 }
 
-.olt_origem {
-    width: 70% !important;
+.inputs-oltEvlan{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.vlan {
-    float: right;
-    width: 29% !important;
+.area-input-olt{
+    flex: 2;
 }
 
-.label-olt-origem {
-   
+.area-input-vlan{
+    margin-left: 20px;;
+    flex: 1;
 }
-
-.label-vlan {
-    
-}
-
 
 /*Container de confirmação*/
 

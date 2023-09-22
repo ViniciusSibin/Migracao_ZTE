@@ -138,18 +138,24 @@ if(!empty($_POST)) {
             <input type="text" name="nome_olt_origem" placeholder="OLT DATACOM IGUA">
             <label>Nome do arquivo de destino: </label>
             <input type="text" name="nome_arquivo_destino" placeholder="<Equip_Origem>_<PON>">
-            <label class="label-fabricante">Selecione o fabricante da OLT de Origem:</label>
-            <label class="label-vlan">VLAN:</label>
-            <select name="fabricante" class="olt_origem">
-                <option value="DATACOM">DATACOM</option>
-                <option value="FIBERHOME">FIBERHOME</option>
-                <option value="INTELBRAS">INTELBRAS</option>
-                <option value="PARKS">PARKS</option>
-                <option value="VSOLUTION">VSOLUTION</option>
-                <option value="HUAWEI">HUAWEI</option>
-                <option value="ZTE">ZTE</option>
-            </select>
-            <input type="text" class="vlan" name="vlan" value="301">
+                <div class="inputs-oltEvlan">
+                    <div class="area-input-olt">
+                        <label class="label-fabricante">Selecione o fabricante da OLT de Origem:</label>
+                        <select name="fabricante" class="olt_origem">
+                            <option value="DATACOM">DATACOM</option>
+                            <option value="FIBERHOME">FIBERHOME</option>
+                            <option value="INTELBRAS">INTELBRAS</option>
+                            <option value="PARKS">PARKS</option>
+                            <option value="VSOLUTION">VSOLUTION</option>
+                            <option value="HUAWEI">HUAWEI</option>
+                            <option value="ZTE">ZTE</option>
+                        </select>
+                    </div>
+                    <div class="area-input-vlan">
+                        <label class="label-vlan" for="vlan">VLAN:</label>
+                        <input type="text" class="vlan" name="vlan" value="301" id="vlan">
+                    </div>
+                </div>
             <label>Selecione o backup da PON:</label>
             <input type="file" id="arquivoInput" name="arquivoOrigem">
             <input type="submit" value="Enviar">
