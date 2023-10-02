@@ -156,7 +156,7 @@ body{
     transition: var(--transicao-padrao);
     background-color: #007bff;
     color: #fff;
-    padding: 10px 25px;
+    padding: 15px 25px;
     border: none;
     font-size: 15px;
     border-radius: 5px;
@@ -205,11 +205,11 @@ body{
 
 .download-arquivo{
     text-decoration: none;
-    margin-top: 20px;
+    margin-top: 10px;
     transition: var(--transicao-padrao);
     background-color: #007bff;
     color: #fff;
-    padding: 10px 25px;
+    padding: 15px 25px;
     border: none;
     font-size: 15px;
     border-radius: 5px;
@@ -218,6 +218,11 @@ body{
 
 .download-arquivo:hover{
     background-color: #0056b3;
+}
+
+.envios-formulario{
+    display:flex;
+    justify-content: space-between;
 }
 
 @media(width < 1070px){

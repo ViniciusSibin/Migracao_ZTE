@@ -170,8 +170,11 @@ if(!empty($_POST)) {
 
             <label>Selecione o backup da PON:</label>
             <input type="file" id="arquivoInput" name="arquivoOrigem">
-            <input type="submit" value="Enviar">
-            <a class="download-arquivo" href="Pages/gerenciar.php">Arquivos Gerados</a>
+            <div class="envios-formulario">
+                <input type="submit" value="Gerar Script">
+                <a class="download-arquivo" href="Pages/gerenciar.php">Arquivos Gerados</a>
+            </div>
+            
         </form>
    </div>
    <div class="confirmacao-container">
