@@ -16,8 +16,6 @@ if(!empty($_POST)) {
     $slot = $_POST['slot'];
     $pon = $_POST['pon'];
 
-    $slot = 2;
-    $pon = 1;
    
     //Substitui espaços pos underline
     $oltOrigem = str_replace(" ", "_", $oltOrigem);
@@ -73,14 +71,16 @@ if(!empty($_POST)) {
             $linhas = explode("\n", $conteudo);
         
             if(strpos($conteudo,"EPON") !== false){
+
                 foreach($linhas as $linha){
                     // Divide a string em partes com base nos espaços em branco
                     $parts = preg_split('/\s+/', $linha);
-                    
-                    // Atribui as partes às variáveis
-                    $interfaceArray = explode(":", $parts[0]);
 
-                    $id = $interfaceArray[1];
+                    $interface = $parts[0];
+                    // Atribui as partes às variáveis
+                    $interfaceArray = explode(':', $interface);
+
+                    $id = $interfaceArray[1]; 
 
                     //Montando o serial number da forma correta
                     $sn = $parts[1] . substr($parts[3], 4);
@@ -152,7 +152,13 @@ if(!empty($_POST)) {
                     <input type="text" class="vlan" name="vlan" value="301" id="vlan">
                 </div>
             </div>
-            
+
+            <label >SLOT que vai migrar:</label>
+            <input type="number" name="slot" value="1">
+
+            <label  for="vlan">PON:</label>
+            <input type="number" name="pon" value="1">
+
             <label>Selecione o backup da PON:</label>
             <input type="file" id="arquivoInput" name="arquivoOrigem">
             <input type="submit" value="Enviar">
