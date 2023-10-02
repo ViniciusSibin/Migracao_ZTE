@@ -21,7 +21,6 @@ body{
     padding: 20px;
     background-color: var(--cor-primaria);
     width: 50%;
-    height: 100vh;
 }
 
 .formulario-topo{
@@ -51,6 +50,7 @@ body{
 }
 
 .formulario-form input[type="text"],
+.formulario-form input[type="number"],
 .formulario-form select,
 .formulario-form input[type="file"] {
     color: var(--cor-fonte);
@@ -66,7 +66,7 @@ body{
 
 .formulario-form input[type="text"]:focus,
 .formulario-form select:focus,
-.formulario-form input[type="file"]:focus{
+.formulario-form input[type="file"]:focus,.formulario-form input[type="number"]:focus{
     background-color: var(--cor-secundaria-hover);
 }
 
@@ -86,14 +86,14 @@ body{
     background-color: #0056b3;
 }
 
-.inputs-oltEvlan{
+.inputsLadoALado{
     display:flex;
     align-items: center;
     justify-content: space-between;
 }
 
 .area-input-olt{
-    flex: 2;
+    flex: 1;
 }
 
 .area-input-vlan{
@@ -101,13 +101,20 @@ body{
     flex: 1;
 }
 
+.area-input-slot{
+    flex:1;
+    margin-left: 20px;
+}
+
+.area-input-pon{
+    flex:1;
+}
 /*Container de confirmação*/
 
 .confirmacao-container{
     overflow-y: scroll;
     background-color: var(--cor-secundaria);
     width: 50%;
-    height: 100vh;
     padding: 20px;
 }
 
