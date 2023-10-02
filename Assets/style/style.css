@@ -18,14 +18,12 @@ body{
 }
 
 .formulario-container{
-    height: 100vh;
-    padding:30px;
+    padding:20px;
     background-color: var(--cor-primaria);
     width: 50%;
 }
 
 .formulario-topo{
-    padding:20px;
     display:flex;
     color: var(--cor-fonte);
 }

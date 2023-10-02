@@ -183,7 +183,6 @@ if(!empty($_POST)) {
             <p>Caso seja necessária a autenticação, aparecerá os campos nesta área para preenchimento</p>
             <!--Parte inicial-->
         </div>
-
         <div class="confirmacao-envio"  style='display:<?php if(isset($confirmaFinalizacao) && $confirmaFinalizacao) {echo "flex;";} else { echo "none"; } ?>'>
             <h1>Informações cadastradas com sucesso!</h1>
             <img src="Assets/img/icones/confirme.png" alt="Icone confirmação">
