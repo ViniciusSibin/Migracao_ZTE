@@ -158,13 +158,13 @@ if(!empty($_POST)) {
                 </div>
             </div>
             <div class="inputsLadoALado">
-                <div class="area-input-pon">
-                    <label  for="vlan">PON:</label>
-                    <input type="number" name="pon" value="1">
-                </div>
                 <div class="area-input-slot">
                     <label >SLOT que vai migrar:</label>
                     <input type="number" name="slot" value="1">
+                </div>
+                <div class="area-input-pon">
+                    <label  for="vlan">PON:</label>
+                    <input type="number" name="pon" value="1">
                 </div>
             </div>
 
