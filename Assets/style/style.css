@@ -7,6 +7,7 @@
 body{
     display:flex;
     color: var(--cor-fonte);
+    background-color: var(--cor-primaria);
 }
 
 :root{
@@ -18,6 +19,7 @@ body{
 }
 
 .formulario-container{
+    height: 100vh;
     padding:20px;
     background-color: var(--cor-primaria);
     width: 50%;
