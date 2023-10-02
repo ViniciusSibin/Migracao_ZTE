@@ -85,16 +85,21 @@ if(!empty($_POST)) {
                     //Montando o serial number da forma correta
                     $sn = $parts[1] . substr($parts[3], 4);
                     $usuario = $parts[6];
-    
+
                     // Remova os espaços extras dos valores, se necessário
                     $pon = trim($pon);
                     $id = trim($id);
                     $sn = trim($sn);
                     $usuario = trim($usuario);
-    
+                    
+                    //echo "<br><br>User: $usuario<br>Serial: $sn<br>ID:$id<br>Slot: $slot<br>Pon: $pon<br>";
+                    
+                    
                     //Monta o script com as insformações do usuário
                     $script = "conf t\ninterface gpon_olt-1/$slot/$pon\nonu $id type F601 sn $sn\nexit\ninterface gpon_onu-1/$slot/$pon:$id\nname $usuario\nvport-mode manual\nvport 1 map-type vlan\ntcont 1 profile 1G\ngemport 1 tcont 1\nvport-map 1 1 vlan $vlan\nexit\ninterface vport-1/$slot/$pon.$id:1\nservice-port 1 user-vlan $vlan vlan $vlan\nexit\npon-onu-mng gpon_onu-1/$slot/$pon:$id\nservice 1 gemport 1 vlan $vlan\nvlan port eth_0/1 mode tag vlan $vlan\nend\n\n\n";
-                
+                    
+                    //echo "<br><br>$script";
+                    
                     fwrite($arquivoDestino, $script);        
                 }
             } else {
