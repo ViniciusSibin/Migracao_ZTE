@@ -134,7 +134,7 @@ if(!empty($_POST)) {
             <input type="text" name="nome_olt_origem" placeholder="OLT DATACOM IGUA">
             <label>Nome do arquivo de destino: </label>
             <input type="text" name="nome_arquivo_destino" placeholder="<Equip_Origem>_<PON>">
-            <div class="inputs-oltEvlan">
+            <div class="inputsLadoALado">
                 <div class="area-input-olt">
                     <label class="label-fabricante">Selecione o fabricante da OLT de Origem:</label>
                     <select name="fabricante" class="olt_origem">
@@ -149,15 +149,19 @@ if(!empty($_POST)) {
                 </div>
                 <div class="area-input-vlan">
                     <label class="label-vlan" for="vlan">VLAN:</label>
-                    <input type="text" class="vlan" name="vlan" value="301" id="vlan">
+                    <input type="number" class="vlan" name="vlan" value="301" id="vlan">
                 </div>
             </div>
-
-            <label >SLOT que vai migrar:</label>
-            <input type="number" name="slot" value="1">
-
-            <label  for="vlan">PON:</label>
-            <input type="number" name="pon" value="1">
+            <div class="inputsLadoALado">
+                <div class="area-input-pon">
+                    <label  for="vlan">PON:</label>
+                    <input type="number" name="pon" value="1">
+                </div>
+                <div class="area-input-slot">
+                    <label >SLOT que vai migrar:</label>
+                    <input type="number" name="slot" value="1">
+                </div>
+            </div>
 
             <label>Selecione o backup da PON:</label>
             <input type="file" id="arquivoInput" name="arquivoOrigem">
