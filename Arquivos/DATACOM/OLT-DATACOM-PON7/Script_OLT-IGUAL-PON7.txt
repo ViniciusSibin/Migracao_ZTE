@@ -1,0 +1,414 @@
+conf t
+interface gpon_olt-1/1/7
+onu 1 type F601 sn ITBSE8F7FFC5
+exit
+interface gpon_onu-1/1/7:1
+name erli.santos
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 301
+exit
+interface vport-1/1/7.1:1
+service-port 1 user-vlan 301 vlan 301
+exit
+pon-onu-mng gpon_onu-1/1/7:1
+service 1 gemport 1 vlan 301
+vlan port eth_0/1 mode tag vlan 301
+end
+write
+
+
+
+conf t
+interface gpon_olt-1/1/7
+onu 2 type F601 sn ITBSE8F7FFB7
+exit
+interface gpon_onu-1/1/7:2
+name lais.zancan.088
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 301
+exit
+interface vport-1/1/7.2:1
+service-port 1 user-vlan 301 vlan 301
+exit
+pon-onu-mng gpon_onu-1/1/7:2
+service 1 gemport 1 vlan 301
+vlan port eth_0/1 mode tag vlan 301
+end
+write
+
+
+
+conf t
+interface gpon_olt-1/1/7
+onu 3 type F601 sn ITBSE8F8CB21
+exit
+interface gpon_onu-1/1/7:3
+name marco.antonio.050
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 301
+exit
+interface vport-1/1/7.3:1
+service-port 1 user-vlan 301 vlan 301
+exit
+pon-onu-mng gpon_onu-1/1/7:3
+service 1 gemport 1 vlan 301
+vlan port eth_0/1 mode tag vlan 301
+end
+write
+
+
+
+conf t
+interface gpon_olt-1/1/7
+onu 4 type F601 sn ITBSE8F0470B
+exit
+interface gpon_onu-1/1/7:4
+name acacio.candido.103
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 301
+exit
+interface vport-1/1/7.4:1
+service-port 1 user-vlan 301 vlan 301
+exit
+pon-onu-mng gpon_onu-1/1/7:4
+service 1 gemport 1 vlan 301
+vlan port eth_0/1 mode tag vlan 301
+end
+write
+
+
+
+conf t
+interface gpon_olt-1/1/7
+onu 5 type F601 sn ITBS0DD99AD0
+exit
+interface gpon_onu-1/1/7:5
+name amanda.silva.133
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 301
+exit
+interface vport-1/1/7.5:1
+service-port 1 user-vlan 301 vlan 301
+exit
+pon-onu-mng gpon_onu-1/1/7:5
+service 1 gemport 1 vlan 301
+vlan port eth_0/1 mode tag vlan 301
+end
+write
+
+
+
+conf t
+interface gpon_olt-1/1/7
+onu 6 type F601 sn ITBS32BC59C7
+exit
+interface gpon_onu-1/1/7:6
+name maria.anacreto.056
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 301
+exit
+interface vport-1/1/7.6:1
+service-port 1 user-vlan 301 vlan 301
+exit
+pon-onu-mng gpon_onu-1/1/7:6
+service 1 gemport 1 vlan 301
+vlan port eth_0/1 mode tag vlan 301
+end
+write
+
+
+
+conf t
+interface gpon_olt-1/1/7
+onu 7 type F601 sn ITBS32BF16C6
+exit
+interface gpon_onu-1/1/7:7
+name fernanda.aparecida.070
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 301
+exit
+interface vport-1/1/7.7:1
+service-port 1 user-vlan 301 vlan 301
+exit
+pon-onu-mng gpon_onu-1/1/7:7
+service 1 gemport 1 vlan 301
+vlan port eth_0/1 mode tag vlan 301
+end
+write
+
+
+
+conf t
+interface gpon_olt-1/1/7
+onu 8 type F601 sn ITBSCF87477A
+exit
+interface gpon_onu-1/1/7:8
+name nadir.carmo.055
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 301
+exit
+interface vport-1/1/7.8:1
+service-port 1 user-vlan 301 vlan 301
+exit
+pon-onu-mng gpon_onu-1/1/7:8
+service 1 gemport 1 vlan 301
+vlan port eth_0/1 mode tag vlan 301
+end
+write
+
+
+
+conf t
+interface gpon_olt-1/1/7
+onu 9 type F601 sn ITBSCFA14B28
+exit
+interface gpon_onu-1/1/7:9
+name fabiana.patricia
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 301
+exit
+interface vport-1/1/7.9:1
+service-port 1 user-vlan 301 vlan 301
+exit
+pon-onu-mng gpon_onu-1/1/7:9
+service 1 gemport 1 vlan 301
+vlan port eth_0/1 mode tag vlan 301
+end
+write
+
+
+
+conf t
+interface gpon_olt-1/1/7
+onu 10 type F601 sn ITBSE8C1B0CE
+exit
+interface gpon_onu-1/1/7:10
+name aline.santos.melo
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 301
+exit
+interface vport-1/1/7.10:1
+service-port 1 user-vlan 301 vlan 301
+exit
+pon-onu-mng gpon_onu-1/1/7:10
+service 1 gemport 1 vlan 301
+vlan port eth_0/1 mode tag vlan 301
+end
+write
+
+
+
+conf t
+interface gpon_olt-1/1/7
+onu 11 type F601 sn ITBSCFA14B37
+exit
+interface gpon_onu-1/1/7:11
+name clovis.cilas.670
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 301
+exit
+interface vport-1/1/7.11:1
+service-port 1 user-vlan 301 vlan 301
+exit
+pon-onu-mng gpon_onu-1/1/7:11
+service 1 gemport 1 vlan 301
+vlan port eth_0/1 mode tag vlan 301
+end
+write
+
+
+
+conf t
+interface gpon_olt-1/1/7
+onu 12 type F601 sn ITBSCF8BCED8
+exit
+interface gpon_onu-1/1/7:12
+name isabele.carrion.51
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 301
+exit
+interface vport-1/1/7.12:1
+service-port 1 user-vlan 301 vlan 301
+exit
+pon-onu-mng gpon_onu-1/1/7:12
+service 1 gemport 1 vlan 301
+vlan port eth_0/1 mode tag vlan 301
+end
+write
+
+
+
+conf t
+interface gpon_olt-1/1/7
+onu 13 type F601 sn ITBSCFC81E5D
+exit
+interface gpon_onu-1/1/7:13
+name antonio.jose.458
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 301
+exit
+interface vport-1/1/7.13:1
+service-port 1 user-vlan 301 vlan 301
+exit
+pon-onu-mng gpon_onu-1/1/7:13
+service 1 gemport 1 vlan 301
+vlan port eth_0/1 mode tag vlan 301
+end
+write
+
+
+
+conf t
+interface gpon_olt-1/1/7
+onu 14 type F601 sn ZTEGD1BBCCEA
+exit
+interface gpon_onu-1/1/7:14
+name afonso.henrique.054
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 301
+exit
+interface vport-1/1/7.14:1
+service-port 1 user-vlan 301 vlan 301
+exit
+pon-onu-mng gpon_onu-1/1/7:14
+service 1 gemport 1 vlan 301
+vlan port eth_0/1 mode tag vlan 301
+end
+write
+
+
+
+conf t
+interface gpon_olt-1/1/7
+onu 20 type F601 sn ITBS5FA7BA48
+exit
+interface gpon_onu-1/1/7:20
+name cassiano.candido.079
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 301
+exit
+interface vport-1/1/7.20:1
+service-port 1 user-vlan 301 vlan 301
+exit
+pon-onu-mng gpon_onu-1/1/7:20
+service 1 gemport 1 vlan 301
+vlan port eth_0/1 mode tag vlan 301
+end
+write
+
+
+
+conf t
+interface gpon_olt-1/1/7
+onu 21 type F601 sn ITBSCFFFF57C
+exit
+interface gpon_onu-1/1/7:21
+name elaine.nilo.030
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 301
+exit
+interface vport-1/1/7.21:1
+service-port 1 user-vlan 301 vlan 301
+exit
+pon-onu-mng gpon_onu-1/1/7:21
+service 1 gemport 1 vlan 301
+vlan port eth_0/1 mode tag vlan 301
+end
+write
+
+
+
+conf t
+interface gpon_olt-1/1/7
+onu 22 type F601 sn ITBSCF8D4361
+exit
+interface gpon_onu-1/1/7:22
+name paulo.cazuza.junior
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 301
+exit
+interface vport-1/1/7.22:1
+service-port 1 user-vlan 301 vlan 301
+exit
+pon-onu-mng gpon_onu-1/1/7:22
+service 1 gemport 1 vlan 301
+vlan port eth_0/1 mode tag vlan 301
+end
+write
+
+
+
+conf t
+interface gpon_olt-1/1/7
+onu 23 type F601 sn ITBS5FCE66A4
+exit
+interface gpon_onu-1/1/7:23
+name camila.galdino.074
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 301
+exit
+interface vport-1/1/7.23:1
+service-port 1 user-vlan 301 vlan 301
+exit
+pon-onu-mng gpon_onu-1/1/7:23
+service 1 gemport 1 vlan 301
+vlan port eth_0/1 mode tag vlan 301
+end
+write
+
+
+
