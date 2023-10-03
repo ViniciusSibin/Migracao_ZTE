@@ -41,8 +41,8 @@
             }
         ?>
    </div>
-   <div class="confirmacao-container">
-        <div class="confirmacao-topo">
+   <div class="detalhamento-container">
+        <div class="detalhamento-topo">
             <h1>Detalhamento</h1>
             <h2>Nome do Equipamento</h2>
             <!--Parte inicial-->
