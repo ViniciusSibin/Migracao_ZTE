@@ -19,8 +19,8 @@ body{
 }
 
 .formulario-container{
-    height: 100vh;
-    padding:20px;
+    height: 100%;
+    padding:30px;
     background-color: var(--cor-primaria);
     width: 50%;
 }
@@ -174,7 +174,7 @@ body{
 }
 
 .confirmacao-topo{
-    padding:20px;
+    padding:30px;
     color: var(--cor-fonte);
 }
     .confirmacao-topo img{
@@ -192,7 +192,7 @@ body{
     }
 
 .confirmacao-envio{
-    padding: 0px 20px 20px 20px;
+    padding: 0px 30px 30px 30px;
 }
     .confirmacao-envio h1{
         font-weight: 100;
