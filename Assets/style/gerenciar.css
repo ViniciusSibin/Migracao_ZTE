@@ -1,0 +1,89 @@
+*{
+    box-sizing: border-box;
+    margin:0px;
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    display:flex;
+    flex-direction: column;
+    color: var(--cor-fonte);
+    background-color: var(--cor-secundaria);
+}
+
+:root{
+    --cor-primaria: #0e1117;
+    --cor-secundaria: #282a36;
+    --cor-secundaria-hover: #363841;
+    --cor-fonte: #f4f4f4;
+    --transicao-padrao: 0.1s all linear;
+}
+
+.titulo{
+    margin: 20px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.titulo h1{
+    font-weight: 100;
+    border-bottom: 1px solid green;
+}
+
+.area-btnSistema .botao-sistema{
+    margin:20px;
+    text-decoration: none;
+    transition: var(--transicao-padrao);
+    background-color: #007bff;
+    color: #fff;
+    font-size: 15px;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.area-btnSistema .botao-sistema:hover{
+    background-color: #0056b3;
+}
+
+.area-gerenciamento{
+    margin: 60px 10px 10px 40px;
+}
+
+.area-gerenciamento p{
+    font-size: 18px;
+    width: 50%;
+    padding: 10px;
+    border-bottom: 1px solid green;
+}
+
+.area-gerenciamento p a{
+    margin-left: 10px;
+    text-decoration: none;
+    color: #fff;
+}
+
+.area-gerenciamento p a:hover{
+    color: #999;
+}
+
+.area-gerenciamento .btn-excluir{
+    color: rgb(255, 120, 120);
+}
+
+.area-gerenciamento .btn-excluir:hover{
+    color: rgb(236, 67, 67);
+}
+
+.area-gerenciamento .btn-visualizar{
+    color: rgb(79, 209, 79)
+}
+
+.area-gerenciamento .btn-visualizar:hover{
+    color: rgb(30, 160, 30)
+}
+
+.arquivos{
+    margin-right: 10px;
+}
