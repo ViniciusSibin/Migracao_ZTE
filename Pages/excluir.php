@@ -36,4 +36,23 @@ if (isset($_GET['dir'])) {
 } else {
     echo 'Parâmetro de diretório ausente.';
 }
+
+if (isset($_GET['arquivo'])) {
+    $arquivoExcluir = $_GET['arquivo'];
+
+    // Verifique se o arquivo a ser excluído está dentro da pasta "Arquivos"
+    if (strpos(realpath($arquivoExcluir), realpath('../Arquivos')) === 0) {
+        // Exclua o arquivo
+        if (unlink($arquivoExcluir)) {
+            // Redirecione de volta para a página de gerenciamento após a exclusão
+            header('Location: gerenciar.php');
+        } else {
+            echo 'Erro ao excluir o arquivo.';
+        }
+    } else {
+        echo 'Arquivo não permitido.';
+    }
+} else {
+    echo 'Parâmetro de arquivo ausente.';
+}
 ?>

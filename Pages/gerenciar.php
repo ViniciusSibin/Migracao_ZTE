@@ -61,19 +61,21 @@
         <div class="titulo">
             <h1>Arquivo</h1>
         </div>
-        <div class="area-botoes">
-            
-        </div>
         <?php 
             if(isset($_GET['arquivo'])) {
                 $arquivoSelecionado = file_get_contents($pastaAtual.'/'.$_GET['arquivo']);
                 if ($arquivoSelecionado !== false) {
                     echo '<pre>' . htmlspecialchars($arquivoSelecionado) . '</pre>';
+                    echo '
+                    <a class="btn-excluirArquivo" href="excluir.php?arquivo=' . urlencode($pastaAtual.'/'.$_GET['arquivo']) . '">Excluir</a>
+                    <a class="btn-downloadArquivo" href="download.php?arquivo=' . urlencode($pastaAtual.'/'.$_GET['arquivo']) . '">Download</a>
+                    ';
                 } else {
                     echo '<p>Erro ao ler o arquivo.</p>';
                 }
             }
         ?>
+
     </div>
 </body>
 </html>
