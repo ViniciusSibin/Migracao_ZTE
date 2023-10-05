@@ -128,3 +128,7 @@ body{
 .btn-downloadArquivo:hover{
     background-color: rgb(30, 160, 30);
 }
+
+.texto-arquivo{
+    margin-bottom: 15px;
+}

@@ -65,11 +65,11 @@
             if(isset($_GET['arquivo'])) {
                 $arquivoSelecionado = file_get_contents($pastaAtual.'/'.$_GET['arquivo']);
                 if ($arquivoSelecionado !== false) {
-                    echo '<pre>' . htmlspecialchars($arquivoSelecionado) . '</pre>';
-                    echo '
+                    echo '<pre class="texto-arquivo">' . htmlspecialchars($arquivoSelecionado) . '</pre>';
+                    echo '<div class="botoes-arquivo">
                     <a class="btn-excluirArquivo" href="excluir.php?arquivo=' . urlencode($pastaAtual.'/'.$_GET['arquivo']) . '">Excluir</a>
                     <a class="btn-downloadArquivo" href="download.php?arquivo=' . urlencode($pastaAtual.'/'.$_GET['arquivo']) . '">Download</a>
-                    ';
+                    </div>';
                 } else {
                     echo '<p>Erro ao ler o arquivo.</p>';
                 }
