@@ -10,51 +10,70 @@
     <link rel="stylesheet" href="../Assets/style/gerenciar.css">
 </head>
 <body>
-    <div class="titulo">
-        <h1>Gerenciar Arquivos</h1>
-    </div>
-    <div class="area-btnSistema">
-        <a href="../index.php" class="botao-sistema">Voltar para o sistema</a>
-    </div>
-    <div class="area-gerenciamento">
-    <?php
-    // Caminho para a pasta "Arquivos"
-    $caminhoArquivos = '../Arquivos';
+    <div class="gerenciamento-container">
+        <div class="titulo">
+            <h1>Gerenciar Arquivos</h1>
+            <a href="../index.php" class="botao-sistema">Voltar para o sistema</a>
+        </div>
+        <div class="area-gerenciamento">
+        <?php
+        // Função para validar caminho seguro
+        function isSafePath($path) {
+            return realpath($path) === false ? false : true;
+        }
 
-    // Verifique se o parâmetro "pasta" está definido na URL
-    if (isset($_GET['pasta'])) {
-        $pastaAtual = $caminhoArquivos . '/' . $_GET['pasta'];
-    } else {
-        $pastaAtual = $caminhoArquivos;
-    }
- 
-    // Lista os arquivos e subpastas na pasta atual
-    $arquivos = scandir($pastaAtual);
-    foreach ($arquivos as $arquivo) {
-        if ($arquivo != '.' && $arquivo != '..') {
-            $caminhoCompleto = $pastaAtual . '/' . $arquivo;
+        // Caminho para a pasta "Arquivos"
+        $caminhoArquivos = '../Arquivos';
 
-            if (is_dir($caminhoCompleto)) {
-                // Verifica se a pasta atual é uma subpasta de "Arquivos"
-                if ($pastaAtual !== $caminhoArquivos) {
-                    $pastaAnterior = dirname($pastaAtual);
-                    $nomePastaAnterior = basename($pastaAnterior);
-                    
-                    if ($nomePastaAnterior === "Arquivos") {
-                        echo '<p>Pasta: <a href="gerenciar.php?pasta=' . urlencode($caminhoCompleto) . '">' . $arquivo . '</a> - <a class="btn-excluir" href="excluir.php?dir=' . urlencode($caminhoCompleto) . '">Excluir</a></p>';
+        // Verifique se o parâmetro "pasta" está definido na URL e é seguro
+        if (isset($_GET['pasta']) && isSafePath($caminhoArquivos . '/' . $_GET['pasta'])) {
+            $pastaAtual = $caminhoArquivos . '/' . $_GET['pasta'];
+        } else {
+            $pastaAtual = $caminhoArquivos;
+        }
+    
+        // Lista os arquivos e subpastas na pasta atual
+        $arquivos = scandir($pastaAtual);
+        foreach ($arquivos as $arquivo) {
+            if ($arquivo != '.' && $arquivo != '..') {
+                $caminhoCompleto = $pastaAtual . '/' . $arquivo;
+
+                if (is_dir($caminhoCompleto)) {
+                    // Verifica se a pasta atual é uma subpasta de "Arquivos"
+                    if (strpos($caminhoCompleto, $caminhoArquivos) === 0) {
+                        echo '<p>Pasta: <a href="gerenciar.php?pasta=' . urlencode($caminhoCompleto) . '">' . $arquivo . '</a>';
+                        // Adicione opção de exclusão apenas para subpastas
+                        if ($pastaAtual !== $caminhoArquivos) {
+                            echo ' - <a class="btn-excluir" href="excluir.php?dir=' . urlencode($caminhoCompleto) . '">Excluir</a>';
+                        }
+                        echo '</p>';
                     }
-                }else {
-                    // Se a pasta for uma subpasta de "Arquivos", exibir a opção de exclusão da subpasta
-                    echo '<p>Pasta: <a href="gerenciar.php?pasta=' . urlencode($caminhoCompleto) . '">' . $arquivo . '</a></p>';
+                } elseif (pathinfo($caminhoCompleto, PATHINFO_EXTENSION) == 'txt') {
+                    // Exibir link para visualizar o arquivo
+                    echo '<p><span class="arquivos">Arquivo:</span> ' . $arquivo . ' - <a class="btn-visualizar" href="gerenciar.php?pasta=' . urlencode($_GET['pasta']) . '&arquivo=' . urlencode($arquivo) . '">Visualizar</a></p>';
                 }
-            } elseif (pathinfo($arquivo, PATHINFO_EXTENSION) == 'txt') {
-                // Exibir link para visualizar o arquivo
-                echo '<p><span class="arquivos">Arquivo:</span> ' . $arquivo . ' - <a class="btn-visualizar" href="' . $caminhoCompleto . '" target="_blank">Visualizar</a></p>';
             }
         }
-    }
-
-    ?>
+        ?>
+        </div>
+    </div><!--tela direita(gerenciamento)-->
+    <div class="arquivo-container">
+        <div class="titulo">
+            <h1>Arquivo</h1>
+        </div>
+        <div class="area-botoes">
+            
+        </div>
+        <?php 
+            if(isset($_GET['arquivo'])) {
+                $arquivoSelecionado = file_get_contents($pastaAtual.'/'.$_GET['arquivo']);
+                if ($arquivoSelecionado !== false) {
+                    echo '<pre>' . htmlspecialchars($arquivoSelecionado) . '</pre>';
+                } else {
+                    echo '<p>Erro ao ler o arquivo.</p>';
+                }
+            }
+        ?>
     </div>
 </body>
 </html>
