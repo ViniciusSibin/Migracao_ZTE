@@ -73,6 +73,10 @@ if(!empty($_POST)) {
             if(strpos($conteudo,"EPON") !== false){
 
                 foreach($linhas as $linha){
+                    if (empty(trim($linha))) {
+                        continue;
+                    }
+                    
                     // Divide a string em partes com base nos espaços em branco
                     $parts = preg_split('/\s+/', $linha);
 
@@ -102,8 +106,40 @@ if(!empty($_POST)) {
                     
                     fwrite($arquivoDestino, $script);        
                 }
-            } else {
-                var_dump($_POST);
+            } elseif (strpos($conteudo, "GPON") !== false){
+                foreach($linhas as $linha){
+                    if (empty(trim($linha))) {
+                        continue;
+                    }
+
+                    // Divide a string em partes com base nos espaços em branco
+                    $parts = preg_split('/\s+/', $linha);
+
+                    $interface = $parts[0];
+                    // Atribui as partes às variáveis
+                    $interfaceArray = explode(':', $interface);
+
+                    $id = $interfaceArray[1]; 
+
+                    //Montando o serial number da forma correta
+                    $sn = $parts[6];
+                    $usuario = $parts[2];
+
+                    // Remova os espaços extras dos valores, se necessário
+                    $pon = trim($pon);
+                    $id = trim($id);
+                    $sn = trim($sn);
+                    $usuario = trim($usuario);
+                    
+                    //echo "<br><br>User: $usuario<br>Serial: $sn<br>ID:$id<br>Slot: $slot<br>Pon: $pon<br>";
+
+                    //Monta o script com as insformações do usuário
+                    $script = "conf t\ninterface gpon_olt-1/$slot/$pon\nonu $id type F601 sn $sn\nexit\ninterface gpon_onu-1/$slot/$pon:$id\nname $usuario\nvport-mode manual\nvport 1 map-type vlan\ntcont 1 profile 1G\ngemport 1 tcont 1\nvport-map 1 1 vlan $vlan\nexit\ninterface vport-1/$slot/$pon.$id:1\nservice-port 1 user-vlan $vlan vlan $vlan\nexit\npon-onu-mng gpon_onu-1/$slot/$pon:$id\nservice 1 gemport 1 vlan $vlan\nvlan port eth_0/1 mode tag vlan $vlan\nend\n\n\n";
+                    
+                    //echo "<br><br>$script";
+                    
+                    fwrite($arquivoDestino, $script); 
+                }
             }
             
             $finalizado = True;
@@ -137,7 +173,7 @@ if(!empty($_POST)) {
                     // Remova os espaços extras dos valores, se necessário
                     $pon = trim($pon);
                     $id = trim($id);
-                    $sn = trim($sn);
+                    $sn = strtoupper(trim($sn));
                     $usuario = trim($usuario);
                     
                     //echo "<br><br>User: $usuario<br>Serial: $sn<br>ID:$id<br>Slot: $slot<br>Pon: $pon<br>";
@@ -151,6 +187,43 @@ if(!empty($_POST)) {
                     fwrite($arquivoDestino, $script);
                     
                 }
+            }
+            $finalizado = True;
+        } elseif($fabricante == "FIBERHOME"){
+            $linhas = explode("\n", $conteudo);
+
+            foreach($linhas as $linha){
+                if (empty(trim($linha))) {
+                    continue;
+                }
+
+                if(strpos($linha, "Status") !== false || strpos($linha, "Export") !== false || strpos($linha, "Record") !== false){
+                    continue;
+                }
+
+                // Divide a string em partes com base nos espaços em branco
+                $parts = explode("|",$linha);
+
+                $id = $parts[5];
+
+                //Montando o serial number da forma correta
+                $sn = $parts[6];
+                $usuario = $parts[1];
+
+                // Remova os espaços extras dos valores, se necessário
+                $pon = trim($pon);
+                $id = trim($id);
+                $sn = strtoupper(trim($sn));
+                $usuario = trim($usuario);
+                
+                //echo "<br><br>User: $usuario<br>Serial: $sn<br>ID:$id<br>Slot: $slot<br>Pon: $pon<br>";
+
+                //Monta o script com as insformações do usuário
+                $script = "conf t\ninterface gpon_olt-1/$slot/$pon\nonu $id type F601 sn $sn\nexit\ninterface gpon_onu-1/$slot/$pon:$id\nname $usuario\nvport-mode manual\nvport 1 map-type vlan\ntcont 1 profile 1G\ngemport 1 tcont 1\nvport-map 1 1 vlan $vlan\nexit\ninterface vport-1/$slot/$pon.$id:1\nservice-port 1 user-vlan $vlan vlan $vlan\nexit\npon-onu-mng gpon_onu-1/$slot/$pon:$id\nservice 1 gemport 1 vlan $vlan\nvlan port eth_0/1 mode tag vlan $vlan\nend\n\n\n";
+                
+                //echo "<br><br>$script";
+                
+                fwrite($arquivoDestino, $script); 
             }
             $finalizado = True;
         }
