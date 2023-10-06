@@ -76,6 +76,7 @@ body{
 }
 
 .area-gerenciamento .btn-excluir{
+    cursor: pointer;
     color: rgb(255, 120, 120);
 }
 

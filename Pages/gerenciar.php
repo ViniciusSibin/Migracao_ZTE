@@ -44,7 +44,7 @@
                         echo '<p>Pasta: <a href="gerenciar.php?pasta=' . urlencode($caminhoCompleto) . '">' . $arquivo . '</a>';
                         // Adicione opção de exclusão apenas para subpastas
                         if ($pastaAtual !== $caminhoArquivos) {
-                            echo ' - <a class="btn-excluir" href="excluir.php?dir=' . urlencode($caminhoCompleto) . '">Excluir</a>';
+                            echo ' - <a class="btn-excluir" onclick="exibirConfirmacaoExcluirDiretorio(\'' . urlencode($caminhoCompleto) . '\')">Excluir</a>';
                         }
                         echo '</p>';
 
@@ -92,8 +92,11 @@
         function recarregarPagina(){
             location.reload();
         }
-        function exibirConfirmacaoExcluirDiretorio(){
-
+        function exibirConfirmacaoExcluirDiretorio(caminhoDiretorio) {
+            if (confirm('Tem certeza que deseja excluir o diretório? Esta ação não pode ser desfeita.')) {
+                // Se o usuário confirmar, redirecione para a página de exclusão
+                window.location.href = 'excluir.php?dir=' + caminhoDiretorio;
+            }
         }
     </script>
 </body>
