@@ -132,3 +132,39 @@ body{
 .texto-arquivo{
     margin-bottom: 15px;
 }
+
+#area-confirmacao-exclusao{
+    border-radius: 7px;
+    border: 1px solid green;
+    padding: 20px 15px;
+    display:none;
+}
+
+#area-confirmacao-exclusao p{
+    margin-bottom: 20px;
+}
+
+#area-confirmacao-exclusao .botao-confirmar-exclusao{
+    transition: var(--transicao-padrao);
+    border-radius: 7px;
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: rgb(79, 209, 79);
+    color: #fff;
+}
+#area-confirmacao-exclusao .botao-confirmar-exclusao:hover{
+    background-color: rgb(30, 160, 30);
+}
+
+#area-confirmacao-exclusao .botao-cancelar-exclusao{
+    transition: var(--transicao-padrao);
+    border-radius: 7px;
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: rgb(240, 41, 41);
+    color: #fff;
+}
+
+#area-confirmacao-exclusao .botao-cancelar-exclusao:hover{
+    background-color: rgb(199, 20, 20);
+}

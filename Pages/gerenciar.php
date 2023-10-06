@@ -44,9 +44,15 @@
                         echo '<p>Pasta: <a href="gerenciar.php?pasta=' . urlencode($caminhoCompleto) . '">' . $arquivo . '</a>';
                         // Adicione opção de exclusão apenas para subpastas
                         if ($pastaAtual !== $caminhoArquivos) {
-                            echo ' - <a class="btn-excluir" href="excluir.php?dir=' . urlencode($caminhoCompleto) . '">Excluir</a>';
+                            echo ' - <a class="btn-excluir" onclick="exibirConfirmacaoExcluirDiretorio()">Excluir</a>';
+                            echo '<div id="area-confirmacao-exclusao">
+                            <p>Tem certeza que deseja excluir o arquivo: <strong>'.$arquivo.'</strong></p>
+                            <a class="botao-cancelar-exclusao" onclick="recarregarPagina()"">Não</a>
+                            <a class="botao-confirmar-exclusao" href="excluir.php?arquivo=' . urlencode($pastaAtual.'/'.$_GET['arquivo']) . '">Sim</a>
+                            </div>';
                         }
                         echo '</p>';
+
                     }
                 } elseif (pathinfo($caminhoCompleto, PATHINFO_EXTENSION) == 'txt') {
                     // Exibir link para visualizar o arquivo
@@ -66,16 +72,34 @@
                 $arquivoSelecionado = file_get_contents($pastaAtual.'/'.$_GET['arquivo']);
                 if ($arquivoSelecionado !== false) {
                     echo '<pre class="texto-arquivo">' . htmlspecialchars($arquivoSelecionado) . '</pre>';
-                    echo '<div class="botoes-arquivo">
-                    <a class="btn-excluirArquivo" href="excluir.php?arquivo=' . urlencode($pastaAtual.'/'.$_GET['arquivo']) . '">Excluir</a>
+                    echo '<div id="botoes-arquivo">
+                    <a class="btn-excluirArquivo" onclick="exibirConfirmacao()">Excluir</a>
                     <a class="btn-downloadArquivo" href="download.php?arquivo=' . urlencode($pastaAtual.'/'.$_GET['arquivo']) . '">Download</a>
+                    </div>';
+                    echo '<div class="area-confirmacao-exclusao-diretorio">
+                    <p>Tem certeza que deseja excluir o arquivo: <strong>'.$arquivo.'</strong></p>
+                    <a class="botao-cancelar-exclusao" onclick="recarregarPagina()"">Não</a>
+                    <a class="botao-confirmar-exclusao" href="excluir.php?arquivo=' . urlencode($pastaAtual.'/'.$_GET['arquivo']) . '">Sim</a>
                     </div>';
                 } else {
                     echo '<p>Erro ao ler o arquivo.</p>';
                 }
             }
         ?>
-
     </div>
+    <script>
+        function exibirConfirmacao(){
+            let botoesArquivo = document.querySelector('#botoes-arquivo')
+            let areaConfirmacao = document.querySelector('#area-confirmacao-exclusao');
+            areaConfirmacao.style.display = 'block';
+            botoesArquivo.style.display = 'none';
+        }
+        function recarregarPagina(){
+            location.reload();
+        }
+        function exibirConfirmacaoExcluirDiretorio(){
+
+        }
+    </script>
 </body>
 </html>

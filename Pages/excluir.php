@@ -45,6 +45,7 @@ if (isset($_GET['arquivo'])) {
         // Exclua o arquivo
         if (unlink($arquivoExcluir)) {
             // Redirecione de volta para a página de gerenciamento após a exclusão
+            echo '<script> alert("Arquivo excluido com sucesso!") </script>';
             header('Location: gerenciar.php');
         } else {
             echo 'Erro ao excluir o arquivo.';
