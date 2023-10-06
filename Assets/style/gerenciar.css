@@ -60,7 +60,7 @@ body{
 
 .area-gerenciamento p{
     font-size: 18px;
-    width: 50%;
+    width: 100%;
     padding: 10px;
     border-bottom: 1px solid green;
 }
@@ -130,7 +130,7 @@ body{
 }
 
 .texto-arquivo{
-    margin-bottom: 15px;
+    padding: 20px;
 }
 
 #area-confirmacao-exclusao{
