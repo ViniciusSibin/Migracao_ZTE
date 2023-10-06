@@ -66,7 +66,7 @@ if(!empty($_POST)) {
                 
             }
             $finalizado = True;
-        } elseif ($fabricante == "VSOLUTION"){
+        } elseif($fabricante == "VSOLUTION"){
 
             $linhas = explode("\n", $conteudo);
         
@@ -106,6 +106,52 @@ if(!empty($_POST)) {
                 var_dump($_POST);
             }
             
+            $finalizado = True;
+        } elseif($fabricante == "PARKS"){
+            $linhas = explode("\n", $conteudo);
+
+            foreach($linhas as $linha){
+                if (preg_match('/\d+-/', $linha)) {
+                    // Extrair números antes do hífen e armazená-los em $id
+                    if (preg_match('/(\d+)-/', $linha, $matches)) {
+                        $id = $matches[1];
+                    } else {
+                        $id = "";
+                    }
+
+                    // Extrair informações entre o hífen e o parênteses e armazená-las em $usuario
+                    if (preg_match('/-(.*?)\s+\(/', $linha, $matches)) {
+                        $usuario = $matches[1];
+                    } else {
+                        $usuario = "";
+                    }
+
+                    // Extrair o que está dentro dos parênteses e armazená-lo em $sn
+                    if (preg_match('/\((.*?)\)/', $linha, $matches)) {
+                        $sn = $matches[1];
+                    } else {
+                        $sn = "";
+                    }
+
+                    // Exibir os valores extraídos
+                    // Remova os espaços extras dos valores, se necessário
+                    $pon = trim($pon);
+                    $id = trim($id);
+                    $sn = trim($sn);
+                    $usuario = trim($usuario);
+                    
+                    //echo "<br><br>User: $usuario<br>Serial: $sn<br>ID:$id<br>Slot: $slot<br>Pon: $pon<br>";
+                    
+                    
+                    //Monta o script com as insformações do usuário
+                    $script = "conf t\ninterface gpon_olt-1/$slot/$pon\nonu $id type F601 sn $sn\nexit\ninterface gpon_onu-1/$slot/$pon:$id\nname $usuario\nvport-mode manual\nvport 1 map-type vlan\ntcont 1 profile 1G\ngemport 1 tcont 1\nvport-map 1 1 vlan $vlan\nexit\ninterface vport-1/$slot/$pon.$id:1\nservice-port 1 user-vlan $vlan vlan $vlan\nexit\npon-onu-mng gpon_onu-1/$slot/$pon:$id\nservice 1 gemport 1 vlan $vlan\nvlan port eth_0/1 mode tag vlan $vlan\nend\n\n\n";
+                    
+                    //echo "<br><br>$script";
+                    
+                    fwrite($arquivoDestino, $script);
+                    
+                }
+            }
             $finalizado = True;
         }
     }
