@@ -44,12 +44,7 @@
                         echo '<p>Pasta: <a href="gerenciar.php?pasta=' . urlencode($caminhoCompleto) . '">' . $arquivo . '</a>';
                         // Adicione opção de exclusão apenas para subpastas
                         if ($pastaAtual !== $caminhoArquivos) {
-                            echo ' - <a class="btn-excluir" onclick="exibirConfirmacaoExcluirDiretorio()">Excluir</a>';
-                            echo '<div id="area-confirmacao-exclusao">
-                            <p>Tem certeza que deseja excluir o arquivo: <strong>'.$arquivo.'</strong></p>
-                            <a class="botao-cancelar-exclusao" onclick="recarregarPagina()"">Não</a>
-                            <a class="botao-confirmar-exclusao" href="excluir.php?arquivo=' . urlencode($pastaAtual.'/'.$_GET['arquivo']) . '">Sim</a>
-                            </div>';
+                            echo ' - <a class="btn-excluir" href="excluir.php?dir=' . urlencode($caminhoCompleto) . '">Excluir</a>';
                         }
                         echo '</p>';
 
@@ -76,7 +71,7 @@
                     <a class="btn-excluirArquivo" onclick="exibirConfirmacao()">Excluir</a>
                     <a class="btn-downloadArquivo" href="download.php?arquivo=' . urlencode($pastaAtual.'/'.$_GET['arquivo']) . '">Download</a>
                     </div>';
-                    echo '<div class="area-confirmacao-exclusao-diretorio">
+                    echo '<div id="area-confirmacao-exclusao">
                     <p>Tem certeza que deseja excluir o arquivo: <strong>'.$arquivo.'</strong></p>
                     <a class="botao-cancelar-exclusao" onclick="recarregarPagina()"">Não</a>
                     <a class="botao-confirmar-exclusao" href="excluir.php?arquivo=' . urlencode($pastaAtual.'/'.$_GET['arquivo']) . '">Sim</a>
