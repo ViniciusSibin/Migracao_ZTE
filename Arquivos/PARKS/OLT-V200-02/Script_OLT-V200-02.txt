@@ -1,0 +1,106 @@
+conf t
+interface gpon_olt-1/1/2
+onu 1 type F601 sn ITBSCF9ADB37
+exit
+interface gpon_onu-1/1/2:1
+name arena.mgp.025@mgp.net.br
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 630
+exit
+interface vport-1/1/2.1:1
+service-port 1 user-vlan 630 vlan 630
+exit
+pon-onu-mng gpon_onu-1/1/2:1
+service 1 gemport 1 vlan 630
+vlan port eth_0/1 mode tag vlan 630
+end
+
+
+conf t
+interface gpon_olt-1/1/2
+onu 2 type F601 sn ITBSCF8C50E5
+exit
+interface gpon_onu-1/1/2:2
+name vanderleia.torre
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 630
+exit
+interface vport-1/1/2.2:1
+service-port 1 user-vlan 630 vlan 630
+exit
+pon-onu-mng gpon_onu-1/1/2:2
+service 1 gemport 1 vlan 630
+vlan port eth_0/1 mode tag vlan 630
+end
+
+
+conf t
+interface gpon_olt-1/1/2
+onu 3 type F601 sn ITBS5FB7D31F
+exit
+interface gpon_onu-1/1/2:3
+name vanessa.lucas.074@mgp.net.br
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 630
+exit
+interface vport-1/1/2.3:1
+service-port 1 user-vlan 630 vlan 630
+exit
+pon-onu-mng gpon_onu-1/1/2:3
+service 1 gemport 1 vlan 630
+vlan port eth_0/1 mode tag vlan 630
+end
+
+
+conf t
+interface gpon_olt-1/1/2
+onu 4 type F601 sn ITBS2C9AA905
+exit
+interface gpon_onu-1/1/2:4
+name heleana.fonseca.621@mgp.net.br
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 630
+exit
+interface vport-1/1/2.4:1
+service-port 1 user-vlan 630 vlan 630
+exit
+pon-onu-mng gpon_onu-1/1/2:4
+service 1 gemport 1 vlan 630
+vlan port eth_0/1 mode tag vlan 630
+end
+
+
+conf t
+interface gpon_olt-1/1/2
+onu 5 type F601 sn 
+exit
+interface gpon_onu-1/1/2:5
+name 
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 630
+exit
+interface vport-1/1/2.5:1
+service-port 1 user-vlan 630 vlan 630
+exit
+pon-onu-mng gpon_onu-1/1/2:5
+service 1 gemport 1 vlan 630
+vlan port eth_0/1 mode tag vlan 630
+end
+
+
+write

@@ -1,0 +1,526 @@
+conf t
+interface gpon_olt-1/1/1
+onu 1 type F601 sn ZNTS8CA33D26
+exit
+interface gpon_onu-1/1/1:1
+name lailson.pereira
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 397
+exit
+interface vport-1/1/1.1:1
+service-port 1 user-vlan 397 vlan 397
+exit
+pon-onu-mng gpon_onu-1/1/1:1
+service 1 gemport 1 vlan 397
+vlan port eth_0/1 mode tag vlan 397
+end
+
+
+conf t
+interface gpon_olt-1/1/1
+onu 2 type F601 sn ITBSCF66400D
+exit
+interface gpon_onu-1/1/1:2
+name leonardo.gil.707
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 397
+exit
+interface vport-1/1/1.2:1
+service-port 1 user-vlan 397 vlan 397
+exit
+pon-onu-mng gpon_onu-1/1/1:2
+service 1 gemport 1 vlan 397
+vlan port eth_0/1 mode tag vlan 397
+end
+
+
+conf t
+interface gpon_olt-1/1/1
+onu 3 type F601 sn ITBSCFFFFD10
+exit
+interface gpon_onu-1/1/1:3
+name dyonathan.buschi.104
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 397
+exit
+interface vport-1/1/1.3:1
+service-port 1 user-vlan 397 vlan 397
+exit
+pon-onu-mng gpon_onu-1/1/1:3
+service 1 gemport 1 vlan 397
+vlan port eth_0/1 mode tag vlan 397
+end
+
+
+conf t
+interface gpon_olt-1/1/1
+onu 4 type F601 sn FHTT0778A6F8
+exit
+interface gpon_onu-1/1/1:4
+name izabel.santos.940
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 397
+exit
+interface vport-1/1/1.4:1
+service-port 1 user-vlan 397 vlan 397
+exit
+pon-onu-mng gpon_onu-1/1/1:4
+service 1 gemport 1 vlan 397
+vlan port eth_0/1 mode tag vlan 397
+end
+
+
+conf t
+interface gpon_olt-1/1/1
+onu 5 type F601 sn ITBS2CE8A40B
+exit
+interface gpon_onu-1/1/1:5
+name nicolas.lachi.431
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 397
+exit
+interface vport-1/1/1.5:1
+service-port 1 user-vlan 397 vlan 397
+exit
+pon-onu-mng gpon_onu-1/1/1:5
+service 1 gemport 1 vlan 397
+vlan port eth_0/1 mode tag vlan 397
+end
+
+
+conf t
+interface gpon_olt-1/1/1
+onu 6 type F601 sn FHTT092DB6C8
+exit
+interface gpon_onu-1/1/1:6
+name carmen.deganello
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 397
+exit
+interface vport-1/1/1.6:1
+service-port 1 user-vlan 397 vlan 397
+exit
+pon-onu-mng gpon_onu-1/1/1:6
+service 1 gemport 1 vlan 397
+vlan port eth_0/1 mode tag vlan 397
+end
+
+
+conf t
+interface gpon_olt-1/1/1
+onu 7 type F601 sn FHTT09B4B008
+exit
+interface gpon_onu-1/1/1:7
+name aparecida.soares
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 397
+exit
+interface vport-1/1/1.7:1
+service-port 1 user-vlan 397 vlan 397
+exit
+pon-onu-mng gpon_onu-1/1/1:7
+service 1 gemport 1 vlan 397
+vlan port eth_0/1 mode tag vlan 397
+end
+
+
+conf t
+interface gpon_olt-1/1/1
+onu 8 type F601 sn TPLGC7F19608
+exit
+interface gpon_onu-1/1/1:8
+name fabiana.camargo.043
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 397
+exit
+interface vport-1/1/1.8:1
+service-port 1 user-vlan 397 vlan 397
+exit
+pon-onu-mng gpon_onu-1/1/1:8
+service 1 gemport 1 vlan 397
+vlan port eth_0/1 mode tag vlan 397
+end
+
+
+conf t
+interface gpon_olt-1/1/1
+onu 9 type F601 sn ZTEGD0269F33
+exit
+interface gpon_onu-1/1/1:9
+name anac.claudia.093
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 397
+exit
+interface vport-1/1/1.9:1
+service-port 1 user-vlan 397 vlan 397
+exit
+pon-onu-mng gpon_onu-1/1/1:9
+service 1 gemport 1 vlan 397
+vlan port eth_0/1 mode tag vlan 397
+end
+
+
+conf t
+interface gpon_olt-1/1/1
+onu 10 type F601 sn ITBS2C42DFFA
+exit
+interface gpon_onu-1/1/1:10
+name loana.oliveira.076
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 397
+exit
+interface vport-1/1/1.10:1
+service-port 1 user-vlan 397 vlan 397
+exit
+pon-onu-mng gpon_onu-1/1/1:10
+service 1 gemport 1 vlan 397
+vlan port eth_0/1 mode tag vlan 397
+end
+
+
+conf t
+interface gpon_olt-1/1/1
+onu 11 type F601 sn ITBSE89C49DB
+exit
+interface gpon_onu-1/1/1:11
+name deen.dayver
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 397
+exit
+interface vport-1/1/1.11:1
+service-port 1 user-vlan 397 vlan 397
+exit
+pon-onu-mng gpon_onu-1/1/1:11
+service 1 gemport 1 vlan 397
+vlan port eth_0/1 mode tag vlan 397
+end
+
+
+conf t
+interface gpon_olt-1/1/1
+onu 12 type F601 sn ITBSCFE0DC21
+exit
+interface gpon_onu-1/1/1:12
+name bruno.santos.044
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 397
+exit
+interface vport-1/1/1.12:1
+service-port 1 user-vlan 397 vlan 397
+exit
+pon-onu-mng gpon_onu-1/1/1:12
+service 1 gemport 1 vlan 397
+vlan port eth_0/1 mode tag vlan 397
+end
+
+
+conf t
+interface gpon_olt-1/1/1
+onu 13 type F601 sn ITBSE8C89304
+exit
+interface gpon_onu-1/1/1:13
+name rkgestao.tele.393
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 397
+exit
+interface vport-1/1/1.13:1
+service-port 1 user-vlan 397 vlan 397
+exit
+pon-onu-mng gpon_onu-1/1/1:13
+service 1 gemport 1 vlan 397
+vlan port eth_0/1 mode tag vlan 397
+end
+
+
+conf t
+interface gpon_olt-1/1/1
+onu 14 type F601 sn ITBSCF9ADB45
+exit
+interface gpon_onu-1/1/1:14
+name samara.cristina.052
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 397
+exit
+interface vport-1/1/1.14:1
+service-port 1 user-vlan 397 vlan 397
+exit
+pon-onu-mng gpon_onu-1/1/1:14
+service 1 gemport 1 vlan 397
+vlan port eth_0/1 mode tag vlan 397
+end
+
+
+conf t
+interface gpon_olt-1/1/1
+onu 15 type F601 sn ZTEGCEC6787E
+exit
+interface gpon_onu-1/1/1:15
+name yenitza.gonzalez.707
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 397
+exit
+interface vport-1/1/1.15:1
+service-port 1 user-vlan 397 vlan 397
+exit
+pon-onu-mng gpon_onu-1/1/1:15
+service 1 gemport 1 vlan 397
+vlan port eth_0/1 mode tag vlan 397
+end
+
+
+conf t
+interface gpon_olt-1/1/1
+onu 16 type F601 sn MKPGB471FD30
+exit
+interface gpon_onu-1/1/1:16
+name tamires.maria.067
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 397
+exit
+interface vport-1/1/1.16:1
+service-port 1 user-vlan 397 vlan 397
+exit
+pon-onu-mng gpon_onu-1/1/1:16
+service 1 gemport 1 vlan 397
+vlan port eth_0/1 mode tag vlan 397
+end
+
+
+conf t
+interface gpon_olt-1/1/1
+onu 17 type F601 sn ITBSCF9AD21A
+exit
+interface gpon_onu-1/1/1:17
+name daniele.bolotti.101
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 397
+exit
+interface vport-1/1/1.17:1
+service-port 1 user-vlan 397 vlan 397
+exit
+pon-onu-mng gpon_onu-1/1/1:17
+service 1 gemport 1 vlan 397
+vlan port eth_0/1 mode tag vlan 397
+end
+
+
+conf t
+interface gpon_olt-1/1/1
+onu 18 type F601 sn ITBSCF8BCEF4
+exit
+interface gpon_onu-1/1/1:18
+name marcelo.santos.025
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 397
+exit
+interface vport-1/1/1.18:1
+service-port 1 user-vlan 397 vlan 397
+exit
+pon-onu-mng gpon_onu-1/1/1:18
+service 1 gemport 1 vlan 397
+vlan port eth_0/1 mode tag vlan 397
+end
+
+
+conf t
+interface gpon_olt-1/1/1
+onu 20 type F601 sn FHTT073C3A68
+exit
+interface gpon_onu-1/1/1:20
+name luzia.olimpio
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 397
+exit
+interface vport-1/1/1.20:1
+service-port 1 user-vlan 397 vlan 397
+exit
+pon-onu-mng gpon_onu-1/1/1:20
+service 1 gemport 1 vlan 397
+vlan port eth_0/1 mode tag vlan 397
+end
+
+
+conf t
+interface gpon_olt-1/1/1
+onu 21 type F601 sn ITBS0D600399
+exit
+interface gpon_onu-1/1/1:21
+name lucas.rodrigues.109
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 397
+exit
+interface vport-1/1/1.21:1
+service-port 1 user-vlan 397 vlan 397
+exit
+pon-onu-mng gpon_onu-1/1/1:21
+service 1 gemport 1 vlan 397
+vlan port eth_0/1 mode tag vlan 397
+end
+
+
+conf t
+interface gpon_olt-1/1/1
+onu 22 type F601 sn FHTT09B1B0D0
+exit
+interface gpon_onu-1/1/1:22
+name nata.ribeiro.586
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 397
+exit
+interface vport-1/1/1.22:1
+service-port 1 user-vlan 397 vlan 397
+exit
+pon-onu-mng gpon_onu-1/1/1:22
+service 1 gemport 1 vlan 397
+vlan port eth_0/1 mode tag vlan 397
+end
+
+
+conf t
+interface gpon_olt-1/1/1
+onu 23 type F601 sn ITBS5FB7D79F
+exit
+interface gpon_onu-1/1/1:23
+name kayoana.oliviera.096
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 397
+exit
+interface vport-1/1/1.23:1
+service-port 1 user-vlan 397 vlan 397
+exit
+pon-onu-mng gpon_onu-1/1/1:23
+service 1 gemport 1 vlan 397
+vlan port eth_0/1 mode tag vlan 397
+end
+
+
+conf t
+interface gpon_olt-1/1/1
+onu 24 type F601 sn ITBS5FCE6AC8
+exit
+interface gpon_onu-1/1/1:24
+name josilaine.silva.095
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 397
+exit
+interface vport-1/1/1.24:1
+service-port 1 user-vlan 397 vlan 397
+exit
+pon-onu-mng gpon_onu-1/1/1:24
+service 1 gemport 1 vlan 397
+vlan port eth_0/1 mode tag vlan 397
+end
+
+
+conf t
+interface gpon_olt-1/1/1
+onu 25 type F601 sn FHTT091BAFC0
+exit
+interface gpon_onu-1/1/1:25
+name janderson.lopes.077
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 397
+exit
+interface vport-1/1/1.25:1
+service-port 1 user-vlan 397 vlan 397
+exit
+pon-onu-mng gpon_onu-1/1/1:25
+service 1 gemport 1 vlan 397
+vlan port eth_0/1 mode tag vlan 397
+end
+
+
+conf t
+interface gpon_olt-1/1/1
+onu 26 type F601 sn HWTCD856C29F
+exit
+interface gpon_onu-1/1/1:26
+name PON[1]-AN5506-01-A1[26]
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 397
+exit
+interface vport-1/1/1.26:1
+service-port 1 user-vlan 397 vlan 397
+exit
+pon-onu-mng gpon_onu-1/1/1:26
+service 1 gemport 1 vlan 397
+vlan port eth_0/1 mode tag vlan 397
+end
+
+
+write

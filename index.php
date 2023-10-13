@@ -94,8 +94,20 @@ if(!empty($_POST)) {
                     $pon = trim($pon);
                     $id = trim($id);
                     $sn = trim($sn);
-                    $usuario = trim($usuario);
                     
+                    if(strpos($sn, "MONU") !== false ){
+                        // Use uma expressão regular para encontrar o último número na string
+                        if (preg_match('/(\d+)$/', $sn, $matches)) {
+                            $ultimoNumero = $matches[0];
+                            $novoNumero = intval($ultimoNumero) + 1;
+    
+                            // Substitua o último número na string pelo novo número
+                            $sn = preg_replace('/\d+$/', $novoNumero, $sn);
+                        }
+                    }
+                    
+                    $usuario = trim($usuario);
+
                     //echo "<br><br>User: $usuario<br>Serial: $sn<br>ID:$id<br>Slot: $slot<br>Pon: $pon<br>";
                     
                     
@@ -213,7 +225,10 @@ if(!empty($_POST)) {
                 // Remova os espaços extras dos valores, se necessário
                 $pon = trim($pon);
                 $id = trim($id);
+                
+                //Coleta o serial number
                 $sn = strtoupper(trim($sn));
+
                 $usuario = trim($usuario);
                 
                 //echo "<br><br>User: $usuario<br>Serial: $sn<br>ID:$id<br>Slot: $slot<br>Pon: $pon<br>";
@@ -224,6 +239,35 @@ if(!empty($_POST)) {
                 //echo "<br><br>$script";
                 
                 fwrite($arquivoDestino, $script); 
+            }
+            $finalizado = True;
+        } elseif($fabricante == "ZTE"){
+            $linhas = explode("\n", $conteudo);
+            $id = 1;
+            foreach($linhas as $linha){
+                if (empty(trim($linha))) {
+                    continue;
+                }
+
+                // Divide a string em partes com base nos espaços em branco
+                $parts = preg_split('/\s+/', $linha);
+
+                // Remova os espaços extras dos valores, se necessário
+                $pon = trim($pon);
+                $slot = trim($slot);
+                $sn = trim($parts[2]);
+
+
+                //echo "<br><br>User: $usuario<br>Serial: $sn<br>ID:$id<br>Slot: $slot<br>Pon: $pon<br>";
+                
+                
+                //Monta o script com as insformações do usuário
+                $script = "conf t\ninterface gpon_olt-1/$slot/$pon\nonu $id type F601 sn $sn\nexit\ninterface gpon_onu-1/$slot/$pon:$id\nvport-mode manual\nvport 1 map-type vlan\ntcont 1 profile 1G\ngemport 1 tcont 1\nvport-map 1 1 vlan $vlan\nexit\ninterface vport-1/$slot/$pon.$id:1\nservice-port 1 user-vlan $vlan vlan $vlan\nexit\npon-onu-mng gpon_onu-1/$slot/$pon:$id\nservice 1 gemport 1 vlan $vlan\nvlan port eth_0/1 mode tag vlan $vlan\nend\n\n\n";
+                
+                //echo "<br><br>$script";
+                
+                fwrite($arquivoDestino, $script);  
+                $id++;      
             }
             $finalizado = True;
         }
@@ -268,7 +312,7 @@ if(!empty($_POST)) {
                         <option value="PARKS">PARKS</option>
                         <option value="VSOLUTION">VSOLUTION</option>
                         <option value="HUAWEI">HUAWEI</option>
-                        <option value="ZTE">ZTE</option>
+                        <option value="ZTE">ZTE (Unconf)</option>
                     </select>
                 </div>
                 <div class="area-input-vlan">
