@@ -23,7 +23,8 @@ if(!empty($_POST)) {
 
     //Verificando se existe o diretório para a OLT escolhida
     $diretorio = __DIR__."/Arquivos/$fabricante/$oltOrigem";
-
+    echo $diretorio;
+    die();
     if (!file_exists($diretorio)) {
         // Tenta criar o diretório com permissões 0755 (permissões padrão, você pode alterá-las conforme necessário)
         mkdir($diretorio, 0755);
