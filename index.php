@@ -22,7 +22,7 @@ if(!empty($_POST)) {
     $nomeArquivoDestino = str_replace(" ", "_", $nomeArquivoDestino);
 
     //Verificando se existe o diretório para a OLT escolhida
-    $diretorio = "Arquivos/$fabricante/$oltOrigem";
+    $diretorio = __DIR__."/Arquivos/$fabricante/$oltOrigem";
 
     if (!file_exists($diretorio)) {
         // Tenta criar o diretório com permissões 0755 (permissões padrão, você pode alterá-las conforme necessário)
@@ -60,7 +60,7 @@ if(!empty($_POST)) {
                 $usuario = trim($usuario);
 
                 //Monta o script com as insformações do usuário
-                $script = "conf t\ninterface gpon_olt-$pon\nonu $id type F601 sn $sn\nexit\ninterface gpon_onu-$pon:$id\nname $usuario\nvport-mode manual\nvport 1 map-type vlan\ntcont 1 profile 1G\ngemport 1 tcont 1\nvport-map 1 1 vlan $vlan\nexit\ninterface vport-$pon.$id:1\nservice-port 1 user-vlan $vlan vlan $vlan\nexit\npon-onu-mng gpon_onu-$pon:$id\nservice 1 gemport 1 vlan $vlan\nvlan port eth_0/1 mode tag vlan $vlan\nend\n\n\n";
+                $script = "conf t\ninterface gpon_olt-$pon\nonu $id type F601 sn $sn\nexit\ninterface gpon_onu-$pon:$id\nname $usuario\nvport-mode manual\nvport 1 map-type vlan\ntcont 1 profile 1G\ngemport 1 tcont 1\nvport-map 1 1 vlan $vlan\nexit\ninterface vport-$pon.$id:1\nservice-port 1 user-vlan $vlan vlan $vlan\nexit\npon-onu-mng gpon_onu-$pon:$id\nservice 1 gemport 1 vlan $vlan\nvlan port eth_0/1 mode tag vlan $vlan\nend\n\n";
             
                 fwrite($arquivoDestino, $script);
                 
@@ -112,7 +112,7 @@ if(!empty($_POST)) {
                     
                     
                     //Monta o script com as insformações do usuário
-                    $script = "conf t\ninterface gpon_olt-1/$slot/$pon\nonu $id type F601 sn $sn\nexit\ninterface gpon_onu-1/$slot/$pon:$id\nname $usuario\nvport-mode manual\nvport 1 map-type vlan\ntcont 1 profile 1G\ngemport 1 tcont 1\nvport-map 1 1 vlan $vlan\nexit\ninterface vport-1/$slot/$pon.$id:1\nservice-port 1 user-vlan $vlan vlan $vlan\nexit\npon-onu-mng gpon_onu-1/$slot/$pon:$id\nservice 1 gemport 1 vlan $vlan\nvlan port eth_0/1 mode tag vlan $vlan\nend\n\n\n";
+                    $script = "conf t\ninterface gpon_olt-1/$slot/$pon\nonu $id type F601 sn $sn\nexit\ninterface gpon_onu-1/$slot/$pon:$id\nname $usuario\nvport-mode manual\nvport 1 map-type vlan\ntcont 1 profile 1G\ngemport 1 tcont 1\nvport-map 1 1 vlan $vlan\nexit\ninterface vport-1/$slot/$pon.$id:1\nservice-port 1 user-vlan $vlan vlan $vlan\nexit\npon-onu-mng gpon_onu-1/$slot/$pon:$id\nservice 1 gemport 1 vlan $vlan\nvlan port eth_0/1 mode tag vlan $vlan\nend\n\n";
                     
                     //echo "<br><br>$script";
                     
@@ -146,7 +146,7 @@ if(!empty($_POST)) {
                     //echo "<br><br>User: $usuario<br>Serial: $sn<br>ID:$id<br>Slot: $slot<br>Pon: $pon<br>";
 
                     //Monta o script com as insformações do usuário
-                    $script = "conf t\ninterface gpon_olt-1/$slot/$pon\nonu $id type F601 sn $sn\nexit\ninterface gpon_onu-1/$slot/$pon:$id\nname $usuario\nvport-mode manual\nvport 1 map-type vlan\ntcont 1 profile 1G\ngemport 1 tcont 1\nvport-map 1 1 vlan $vlan\nexit\ninterface vport-1/$slot/$pon.$id:1\nservice-port 1 user-vlan $vlan vlan $vlan\nexit\npon-onu-mng gpon_onu-1/$slot/$pon:$id\nservice 1 gemport 1 vlan $vlan\nvlan port eth_0/1 mode tag vlan $vlan\nend\n\n\n";
+                    $script = "conf t\ninterface gpon_olt-1/$slot/$pon\nonu $id type F601 sn $sn\nexit\ninterface gpon_onu-1/$slot/$pon:$id\nname $usuario\nvport-mode manual\nvport 1 map-type vlan\ntcont 1 profile 1G\ngemport 1 tcont 1\nvport-map 1 1 vlan $vlan\nexit\ninterface vport-1/$slot/$pon.$id:1\nservice-port 1 user-vlan $vlan vlan $vlan\nexit\npon-onu-mng gpon_onu-1/$slot/$pon:$id\nservice 1 gemport 1 vlan $vlan\nvlan port eth_0/1 mode tag vlan $vlan\nend\n\n";
                     
                     //echo "<br><br>$script";
                     
@@ -192,7 +192,7 @@ if(!empty($_POST)) {
                     
                     
                     //Monta o script com as insformações do usuário
-                    $script = "conf t\ninterface gpon_olt-1/$slot/$pon\nonu $id type F601 sn $sn\nexit\ninterface gpon_onu-1/$slot/$pon:$id\nname $usuario\nvport-mode manual\nvport 1 map-type vlan\ntcont 1 profile 1G\ngemport 1 tcont 1\nvport-map 1 1 vlan $vlan\nexit\ninterface vport-1/$slot/$pon.$id:1\nservice-port 1 user-vlan $vlan vlan $vlan\nexit\npon-onu-mng gpon_onu-1/$slot/$pon:$id\nservice 1 gemport 1 vlan $vlan\nvlan port eth_0/1 mode tag vlan $vlan\nend\n\n\n";
+                    $script = "conf t\ninterface gpon_olt-1/$slot/$pon\nonu $id type F601 sn $sn\nexit\ninterface gpon_onu-1/$slot/$pon:$id\nname $usuario\nvport-mode manual\nvport 1 map-type vlan\ntcont 1 profile 1G\ngemport 1 tcont 1\nvport-map 1 1 vlan $vlan\nexit\ninterface vport-1/$slot/$pon.$id:1\nservice-port 1 user-vlan $vlan vlan $vlan\nexit\npon-onu-mng gpon_onu-1/$slot/$pon:$id\nservice 1 gemport 1 vlan $vlan\nvlan port eth_0/1 mode tag vlan $vlan\nend\n\n";
                     
                     //echo "<br><br>$script";
                     
@@ -234,14 +234,14 @@ if(!empty($_POST)) {
                 //echo "<br><br>User: $usuario<br>Serial: $sn<br>ID:$id<br>Slot: $slot<br>Pon: $pon<br>";
 
                 //Monta o script com as insformações do usuário
-                $script = "conf t\ninterface gpon_olt-1/$slot/$pon\nonu $id type F601 sn $sn\nexit\ninterface gpon_onu-1/$slot/$pon:$id\nname $usuario\nvport-mode manual\nvport 1 map-type vlan\ntcont 1 profile 1G\ngemport 1 tcont 1\nvport-map 1 1 vlan $vlan\nexit\ninterface vport-1/$slot/$pon.$id:1\nservice-port 1 user-vlan $vlan vlan $vlan\nexit\npon-onu-mng gpon_onu-1/$slot/$pon:$id\nservice 1 gemport 1 vlan $vlan\nvlan port eth_0/1 mode tag vlan $vlan\nend\n\n\n";
+                $script = "conf t\ninterface gpon_olt-1/$slot/$pon\nonu $id type F601 sn $sn\nexit\ninterface gpon_onu-1/$slot/$pon:$id\nname $usuario\nvport-mode manual\nvport 1 map-type vlan\ntcont 1 profile 1G\ngemport 1 tcont 1\nvport-map 1 1 vlan $vlan\nexit\ninterface vport-1/$slot/$pon.$id:1\nservice-port 1 user-vlan $vlan vlan $vlan\nexit\npon-onu-mng gpon_onu-1/$slot/$pon:$id\nservice 1 gemport 1 vlan $vlan\nvlan port eth_0/1 mode tag vlan $vlan\nend\n\n";
                 
                 //echo "<br><br>$script";
                 
                 fwrite($arquivoDestino, $script); 
             }
             $finalizado = True;
-        } elseif($fabricante == "ZTE"){
+        } elseif($fabricante == "ZTE_unconf"){
             $linhas = explode("\n", $conteudo);
             $id = 1;
             foreach($linhas as $linha){
@@ -262,7 +262,7 @@ if(!empty($_POST)) {
                 
                 
                 //Monta o script com as insformações do usuário
-                $script = "conf t\ninterface gpon_olt-1/$slot/$pon\nonu $id type F601 sn $sn\nexit\ninterface gpon_onu-1/$slot/$pon:$id\nvport-mode manual\nvport 1 map-type vlan\ntcont 1 profile 1G\ngemport 1 tcont 1\nvport-map 1 1 vlan $vlan\nexit\ninterface vport-1/$slot/$pon.$id:1\nservice-port 1 user-vlan $vlan vlan $vlan\nexit\npon-onu-mng gpon_onu-1/$slot/$pon:$id\nservice 1 gemport 1 vlan $vlan\nvlan port eth_0/1 mode tag vlan $vlan\nend\n\n\n";
+                $script = "conf t\ninterface gpon_olt-1/$slot/$pon\nonu $id type F601 sn $sn\nexit\ninterface gpon_onu-1/$slot/$pon:$id\nvport-mode manual\nvport 1 map-type vlan\ntcont 1 profile 1G\ngemport 1 tcont 1\nvport-map 1 1 vlan $vlan\nexit\ninterface vport-1/$slot/$pon.$id:1\nservice-port 1 user-vlan $vlan vlan $vlan\nexit\npon-onu-mng gpon_onu-1/$slot/$pon:$id\nservice 1 gemport 1 vlan $vlan\nvlan port eth_0/1 mode tag vlan $vlan\nend\n\n";
                 
                 //echo "<br><br>$script";
                 
@@ -270,11 +270,51 @@ if(!empty($_POST)) {
                 $id++;      
             }
             $finalizado = True;
+        } elseif($fabricante == "ZTE"){
+            $linhas = explode("\n", $conteudo);
+            
+            foreach($linhas as $linha){
+                if (empty(trim($linha))) {
+                    continue;
+                }
+
+                // Divide a string em partes com base nos espaços em branco
+                $parts = preg_split('/\s+/', $linha);
+
+                // Verifique se há pelo menos 5 partes antes de juntar o nome
+                if (count($parts) >= 7) {
+                    $nameParts = array_slice($parts, 6);
+                    $name = strtolower(trim(implode(' ', $nameParts)));
+                    //$name = strtolower(str_replace(' ', '.', $name));
+
+                    // Recriar o array original, substituindo os elementos de 4 em diante pelo nome unido
+                    $parts = array_merge(array_slice($parts, 0, 6), [$name]);
+                }
+
+                // Remova os espaços extras dos valores, se necessário
+                $pon = trim($pon);
+                $slot = trim($slot);
+                $id = trim($parts[1]);
+                $sn = trim($parts[5]);
+                $usuario = trim($parts[6]);
+
+
+                //echo "<br><br>User: $usuario<br>Serial: $sn<br>ID:$id<br>Slot: $slot<br>Pon: $pon<br>";
+                
+                
+                //Monta o script com as insformações do usuário
+                $script = "conf t\ninterface gpon_olt-1/$slot/$pon\nonu $id type F601 sn $sn\nexit\ninterface gpon_onu-1/$slot/$pon:$id\nname $usuario\nvport-mode manual\nvport 1 map-type vlan\ntcont 1 profile 1G\ngemport 1 tcont 1\nvport-map 1 1 vlan $vlan\nexit\ninterface vport-1/$slot/$pon.$id:1\nservice-port 1 user-vlan $vlan vlan $vlan\nexit\npon-onu-mng gpon_onu-1/$slot/$pon:$id\nservice 1 gemport 1 vlan $vlan\nvlan port eth_0/1 mode tag vlan $vlan\nend\n\n";
+                
+                //echo "<br><br>$script";
+                
+                fwrite($arquivoDestino, $script);
+            }
+            $finalizado = True;
         }
     }
 
     if(isset($finalizado) && $finalizado === True){
-        fwrite($arquivoDestino, "write");
+        fwrite($arquivoDestino, "write\n\n");
         $confirmaFinalizacao = True;
     }
 }
@@ -312,7 +352,8 @@ if(!empty($_POST)) {
                         <option value="PARKS">PARKS</option>
                         <option value="VSOLUTION">VSOLUTION</option>
                         <option value="HUAWEI">HUAWEI</option>
-                        <option value="ZTE">ZTE (Unconf)</option>
+                        <option value="ZTE">ZTE</option>
+                        <option value="ZTE_unconf">ZTE (Unconf)</option>
                     </select>
                 </div>
                 <div class="area-input-vlan">

@@ -1,0 +1,211 @@
+conf t
+interface gpon_olt-1/1/2
+onu 1 type F601 sn ITBS3276A98E
+exit
+interface gpon_onu-1/1/2:1
+name maria.docelina.866@mgp.net.br
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 629
+exit
+interface vport-1/1/2.1:1
+service-port 1 user-vlan 629 vlan 629
+exit
+pon-onu-mng gpon_onu-1/1/2:1
+service 1 gemport 1 vlan 629
+vlan port eth_0/1 mode tag vlan 629
+end
+
+
+conf t
+interface gpon_olt-1/1/2
+onu 2 type F601 sn ITBS32FC0EC6
+exit
+interface gpon_onu-1/1/2:2
+name leonardo.almeida.083@mgp.net.br
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 629
+exit
+interface vport-1/1/2.2:1
+service-port 1 user-vlan 629 vlan 629
+exit
+pon-onu-mng gpon_onu-1/1/2:2
+service 1 gemport 1 vlan 629
+vlan port eth_0/1 mode tag vlan 629
+end
+
+
+conf t
+interface gpon_olt-1/1/2
+onu 3 type F601 sn 
+exit
+interface gpon_onu-1/1/2:3
+name 
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 629
+exit
+interface vport-1/1/2.3:1
+service-port 1 user-vlan 629 vlan 629
+exit
+pon-onu-mng gpon_onu-1/1/2:3
+service 1 gemport 1 vlan 629
+vlan port eth_0/1 mode tag vlan 629
+end
+
+
+conf t
+interface gpon_olt-1/1/2
+onu 4 type F601 sn ITBSCFA14B05
+exit
+interface gpon_onu-1/1/2:4
+name almir.oliveira.083
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 629
+exit
+interface vport-1/1/2.4:1
+service-port 1 user-vlan 629 vlan 629
+exit
+pon-onu-mng gpon_onu-1/1/2:4
+service 1 gemport 1 vlan 629
+vlan port eth_0/1 mode tag vlan 629
+end
+
+
+conf t
+interface gpon_olt-1/1/2
+onu 5 type F601 sn ITBSF153B94D
+exit
+interface gpon_onu-1/1/2:5
+name carlos.alexandre.024@mgp.net.br
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 629
+exit
+interface vport-1/1/2.5:1
+service-port 1 user-vlan 629 vlan 629
+exit
+pon-onu-mng gpon_onu-1/1/2:5
+service 1 gemport 1 vlan 629
+vlan port eth_0/1 mode tag vlan 629
+end
+
+
+writeconf t
+interface gpon_olt-1/1/2
+onu 1 type F601 sn ITBS3276A98E
+exit
+interface gpon_onu-1/1/2:1
+name maria.docelina.866@mgp.net.br
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 629
+exit
+interface vport-1/1/2.1:1
+service-port 1 user-vlan 629 vlan 629
+exit
+pon-onu-mng gpon_onu-1/1/2:1
+service 1 gemport 1 vlan 629
+vlan port eth_0/1 mode tag vlan 629
+end
+
+
+conf t
+interface gpon_olt-1/1/2
+onu 2 type F601 sn ITBS32FC0EC6
+exit
+interface gpon_onu-1/1/2:2
+name leonardo.almeida.083@mgp.net.br
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 629
+exit
+interface vport-1/1/2.2:1
+service-port 1 user-vlan 629 vlan 629
+exit
+pon-onu-mng gpon_onu-1/1/2:2
+service 1 gemport 1 vlan 629
+vlan port eth_0/1 mode tag vlan 629
+end
+
+
+conf t
+interface gpon_olt-1/1/2
+onu 3 type F601 sn 
+exit
+interface gpon_onu-1/1/2:3
+name 
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 629
+exit
+interface vport-1/1/2.3:1
+service-port 1 user-vlan 629 vlan 629
+exit
+pon-onu-mng gpon_onu-1/1/2:3
+service 1 gemport 1 vlan 629
+vlan port eth_0/1 mode tag vlan 629
+end
+
+
+conf t
+interface gpon_olt-1/1/2
+onu 4 type F601 sn ITBSCFA14B05
+exit
+interface gpon_onu-1/1/2:4
+name almir.oliveira.083
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 629
+exit
+interface vport-1/1/2.4:1
+service-port 1 user-vlan 629 vlan 629
+exit
+pon-onu-mng gpon_onu-1/1/2:4
+service 1 gemport 1 vlan 629
+vlan port eth_0/1 mode tag vlan 629
+end
+
+
+conf t
+interface gpon_olt-1/1/2
+onu 5 type F601 sn ITBSF153B94D
+exit
+interface gpon_onu-1/1/2:5
+name carlos.alexandre.024@mgp.net.br
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 629
+exit
+interface vport-1/1/2.5:1
+service-port 1 user-vlan 629 vlan 629
+exit
+pon-onu-mng gpon_onu-1/1/2:5
+service 1 gemport 1 vlan 629
+vlan port eth_0/1 mode tag vlan 629
+end
+
+
+write

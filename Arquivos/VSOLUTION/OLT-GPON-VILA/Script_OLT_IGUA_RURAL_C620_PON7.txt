@@ -1,0 +1,22 @@
+conf t
+interface gpon_olt-1/1/7
+onu 1 type F601 sn ITBSF155DF0A
+exit
+interface gpon_onu-1/1/7:1
+name elma.domingos.822
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 301
+exit
+interface vport-1/1/7.1:1
+service-port 1 user-vlan 301 vlan 301
+exit
+pon-onu-mng gpon_onu-1/1/7:1
+service 1 gemport 1 vlan 301
+vlan port eth_0/1 mode tag vlan 301
+end
+
+
+write
