@@ -29,7 +29,9 @@ if(!empty($_POST)) {
     
     if (!file_exists($diretorio)) {
         // Tenta criar o diretório com permissões 0755 (permissões padrão, você pode alterá-las conforme necessário)
-        mkdir($diretorio, 0755, true);
+        if (!mkdir($diretorio, 0755, true)) {
+            die("Falha ao criar o diretório: " . error_get_last()['message']);
+        }
     } 
 
     $arquivoDestino = fopen($diretorio . "/Script_$nomeArquivoDestino.txt", "a");
