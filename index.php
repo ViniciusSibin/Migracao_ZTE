@@ -35,8 +35,7 @@ if(!empty($_POST)) {
     } 
 
     $arquivoDestino = fopen($diretorio . "/Script_$nomeArquivoDestino.txt", "a");
-    echo $diretorio . "/Script_$nomeArquivoDestino.txt";
-    die();
+
     if (isset($arquivoOrigem) && $arquivoOrigem) {
         $finalizado = False;
         
