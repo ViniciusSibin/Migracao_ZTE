@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 if(!empty($_POST)) {
     //Obtendo o diretório do arquivo de origem
     if(isset($_FILES['arquivoOrigem'])){
@@ -26,7 +29,7 @@ if(!empty($_POST)) {
     
     if (!file_exists($diretorio)) {
         // Tenta criar o diretório com permissões 0755 (permissões padrão, você pode alterá-las conforme necessário)
-        mkdir($diretorio, 0755);
+        mkdir($diretorio, 0755, true);
     } 
 
     $arquivoDestino = fopen($diretorio . "/Script_$nomeArquivoDestino.txt", "a");
