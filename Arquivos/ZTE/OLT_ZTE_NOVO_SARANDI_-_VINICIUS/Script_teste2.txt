@@ -1,0 +1,562 @@
+conf t
+interface gpon_olt-1/1/2
+onu 1 type F601 sn ITBS327BA4DA
+exit
+interface gpon_onu-1/1/2:1
+name prc.teste1
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 301
+exit
+interface vport-1/1/2.1:1
+service-port 1 user-vlan 301 vlan 301
+exit
+pon-onu-mng gpon_onu-1/1/2:1
+service 1 gemport 1 vlan 301
+vlan port eth_0/1 mode tag vlan 301
+end
+
+conf t
+interface gpon_olt-1/1/2
+onu 2 type F601 sn ITBSE8AF18E0
+exit
+interface gpon_onu-1/1/2:2
+name dallas.teste2
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 301
+exit
+interface vport-1/1/2.2:1
+service-port 1 user-vlan 301 vlan 301
+exit
+pon-onu-mng gpon_onu-1/1/2:2
+service 1 gemport 1 vlan 301
+vlan port eth_0/1 mode tag vlan 301
+end
+
+conf t
+interface gpon_olt-1/1/2
+onu 3 type F601 sn FHTT10134D98
+exit
+interface gpon_onu-1/1/2:3
+name singular.teste3
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 301
+exit
+interface vport-1/1/2.3:1
+service-port 1 user-vlan 301 vlan 301
+exit
+pon-onu-mng gpon_onu-1/1/2:3
+service 1 gemport 1 vlan 301
+vlan port eth_0/1 mode tag vlan 301
+end
+
+conf t
+interface gpon_olt-1/1/2
+onu 4 type F601 sn ITBS5FED3129
+exit
+interface gpon_onu-1/1/2:4
+name intersul.teste4
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 301
+exit
+interface vport-1/1/2.4:1
+service-port 1 user-vlan 301 vlan 301
+exit
+pon-onu-mng gpon_onu-1/1/2:4
+service 1 gemport 1 vlan 301
+vlan port eth_0/1 mode tag vlan 301
+end
+
+conf t
+interface gpon_olt-1/1/2
+onu 5 type F601 sn TPLG0E596FC3
+exit
+interface gpon_onu-1/1/2:5
+name 
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 301
+exit
+interface vport-1/1/2.5:1
+service-port 1 user-vlan 301 vlan 301
+exit
+pon-onu-mng gpon_onu-1/1/2:5
+service 1 gemport 1 vlan 301
+vlan port eth_0/1 mode tag vlan 301
+end
+
+conf t
+interface gpon_olt-1/1/2
+onu 6 type F601 sn ITBS5FCE6B56
+exit
+interface gpon_onu-1/1/2:6
+name 
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 301
+exit
+interface vport-1/1/2.6:1
+service-port 1 user-vlan 301 vlan 301
+exit
+pon-onu-mng gpon_onu-1/1/2:6
+service 1 gemport 1 vlan 301
+vlan port eth_0/1 mode tag vlan 301
+end
+
+conf t
+interface gpon_olt-1/1/2
+onu 7 type F601 sn MKPGB480372A
+exit
+interface gpon_onu-1/1/2:7
+name 
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 301
+exit
+interface vport-1/1/2.7:1
+service-port 1 user-vlan 301 vlan 301
+exit
+pon-onu-mng gpon_onu-1/1/2:7
+service 1 gemport 1 vlan 301
+vlan port eth_0/1 mode tag vlan 301
+end
+
+conf t
+interface gpon_olt-1/1/2
+onu 8 type F601 sn ITBS32BF1656
+exit
+interface gpon_onu-1/1/2:8
+name 
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 301
+exit
+interface vport-1/1/2.8:1
+service-port 1 user-vlan 301 vlan 301
+exit
+pon-onu-mng gpon_onu-1/1/2:8
+service 1 gemport 1 vlan 301
+vlan port eth_0/1 mode tag vlan 301
+end
+
+conf t
+interface gpon_olt-1/1/2
+onu 9 type F601 sn ZTEGD1BBCC80
+exit
+interface gpon_onu-1/1/2:9
+name 
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 301
+exit
+interface vport-1/1/2.9:1
+service-port 1 user-vlan 301 vlan 301
+exit
+pon-onu-mng gpon_onu-1/1/2:9
+service 1 gemport 1 vlan 301
+vlan port eth_0/1 mode tag vlan 301
+end
+
+conf t
+interface gpon_olt-1/1/2
+onu 10 type F601 sn ITBS5F44C002
+exit
+interface gpon_onu-1/1/2:10
+name 
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 301
+exit
+interface vport-1/1/2.10:1
+service-port 1 user-vlan 301 vlan 301
+exit
+pon-onu-mng gpon_onu-1/1/2:10
+service 1 gemport 1 vlan 301
+vlan port eth_0/1 mode tag vlan 301
+end
+
+conf t
+interface gpon_olt-1/1/2
+onu 11 type F601 sn ITBS5F448424
+exit
+interface gpon_onu-1/1/2:11
+name 
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 301
+exit
+interface vport-1/1/2.11:1
+service-port 1 user-vlan 301 vlan 301
+exit
+pon-onu-mng gpon_onu-1/1/2:11
+service 1 gemport 1 vlan 301
+vlan port eth_0/1 mode tag vlan 301
+end
+
+conf t
+interface gpon_olt-1/1/2
+onu 12 type F601 sn ITBS0D60027D
+exit
+interface gpon_onu-1/1/2:12
+name 
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 301
+exit
+interface vport-1/1/2.12:1
+service-port 1 user-vlan 301 vlan 301
+exit
+pon-onu-mng gpon_onu-1/1/2:12
+service 1 gemport 1 vlan 301
+vlan port eth_0/1 mode tag vlan 301
+end
+
+conf t
+interface gpon_olt-1/1/2
+onu 13 type F601 sn ITBS5F79D041
+exit
+interface gpon_onu-1/1/2:13
+name 
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 301
+exit
+interface vport-1/1/2.13:1
+service-port 1 user-vlan 301 vlan 301
+exit
+pon-onu-mng gpon_onu-1/1/2:13
+service 1 gemport 1 vlan 301
+vlan port eth_0/1 mode tag vlan 301
+end
+
+conf t
+interface gpon_olt-1/1/2
+onu 14 type F601 sn ITBSCF8BCEBC
+exit
+interface gpon_onu-1/1/2:14
+name 
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 301
+exit
+interface vport-1/1/2.14:1
+service-port 1 user-vlan 301 vlan 301
+exit
+pon-onu-mng gpon_onu-1/1/2:14
+service 1 gemport 1 vlan 301
+vlan port eth_0/1 mode tag vlan 301
+end
+
+conf t
+interface gpon_olt-1/1/2
+onu 15 type F601 sn ITBSE89C49AD
+exit
+interface gpon_onu-1/1/2:15
+name 
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 301
+exit
+interface vport-1/1/2.15:1
+service-port 1 user-vlan 301 vlan 301
+exit
+pon-onu-mng gpon_onu-1/1/2:15
+service 1 gemport 1 vlan 301
+vlan port eth_0/1 mode tag vlan 301
+end
+
+conf t
+interface gpon_olt-1/1/2
+onu 16 type F601 sn MONU00895289
+exit
+interface gpon_onu-1/1/2:16
+name 
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 301
+exit
+interface vport-1/1/2.16:1
+service-port 1 user-vlan 301 vlan 301
+exit
+pon-onu-mng gpon_onu-1/1/2:16
+service 1 gemport 1 vlan 301
+vlan port eth_0/1 mode tag vlan 301
+end
+
+conf t
+interface gpon_olt-1/1/2
+onu 17 type F601 sn ITBS32BF1676
+exit
+interface gpon_onu-1/1/2:17
+name 
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 301
+exit
+interface vport-1/1/2.17:1
+service-port 1 user-vlan 301 vlan 301
+exit
+pon-onu-mng gpon_onu-1/1/2:17
+service 1 gemport 1 vlan 301
+vlan port eth_0/1 mode tag vlan 301
+end
+
+conf t
+interface gpon_olt-1/1/2
+onu 18 type F601 sn GPON002BD230
+exit
+interface gpon_onu-1/1/2:18
+name 
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 301
+exit
+interface vport-1/1/2.18:1
+service-port 1 user-vlan 301 vlan 301
+exit
+pon-onu-mng gpon_onu-1/1/2:18
+service 1 gemport 1 vlan 301
+vlan port eth_0/1 mode tag vlan 301
+end
+
+conf t
+interface gpon_olt-1/1/2
+onu 20 type F601 sn ITBS0D2BC33B
+exit
+interface gpon_onu-1/1/2:20
+name 
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 301
+exit
+interface vport-1/1/2.20:1
+service-port 1 user-vlan 301 vlan 301
+exit
+pon-onu-mng gpon_onu-1/1/2:20
+service 1 gemport 1 vlan 301
+vlan port eth_0/1 mode tag vlan 301
+end
+
+conf t
+interface gpon_olt-1/1/2
+onu 21 type F601 sn MKPGB47A5DE6
+exit
+interface gpon_onu-1/1/2:21
+name 
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 301
+exit
+interface vport-1/1/2.21:1
+service-port 1 user-vlan 301 vlan 301
+exit
+pon-onu-mng gpon_onu-1/1/2:21
+service 1 gemport 1 vlan 301
+vlan port eth_0/1 mode tag vlan 301
+end
+
+conf t
+interface gpon_olt-1/1/2
+onu 22 type F601 sn ITBS8B5F925B
+exit
+interface gpon_onu-1/1/2:22
+name 
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 301
+exit
+interface vport-1/1/2.22:1
+service-port 1 user-vlan 301 vlan 301
+exit
+pon-onu-mng gpon_onu-1/1/2:22
+service 1 gemport 1 vlan 301
+vlan port eth_0/1 mode tag vlan 301
+end
+
+conf t
+interface gpon_olt-1/1/2
+onu 23 type F601 sn ITBS5F80F043
+exit
+interface gpon_onu-1/1/2:23
+name 
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 301
+exit
+interface vport-1/1/2.23:1
+service-port 1 user-vlan 301 vlan 301
+exit
+pon-onu-mng gpon_onu-1/1/2:23
+service 1 gemport 1 vlan 301
+vlan port eth_0/1 mode tag vlan 301
+end
+
+conf t
+interface gpon_olt-1/1/2
+onu 25 type F601 sn ITBS5FB7D1D1
+exit
+interface gpon_onu-1/1/2:25
+name 
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 301
+exit
+interface vport-1/1/2.25:1
+service-port 1 user-vlan 301 vlan 301
+exit
+pon-onu-mng gpon_onu-1/1/2:25
+service 1 gemport 1 vlan 301
+vlan port eth_0/1 mode tag vlan 301
+end
+
+conf t
+interface gpon_olt-1/1/2
+onu 26 type F601 sn MKPGB47D11BC
+exit
+interface gpon_onu-1/1/2:26
+name 
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 301
+exit
+interface vport-1/1/2.26:1
+service-port 1 user-vlan 301 vlan 301
+exit
+pon-onu-mng gpon_onu-1/1/2:26
+service 1 gemport 1 vlan 301
+vlan port eth_0/1 mode tag vlan 301
+end
+
+conf t
+interface gpon_olt-1/1/2
+onu 27 type F601 sn ITBS5FCE69FC
+exit
+interface gpon_onu-1/1/2:27
+name 
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 301
+exit
+interface vport-1/1/2.27:1
+service-port 1 user-vlan 301 vlan 301
+exit
+pon-onu-mng gpon_onu-1/1/2:27
+service 1 gemport 1 vlan 301
+vlan port eth_0/1 mode tag vlan 301
+end
+
+conf t
+interface gpon_olt-1/1/2
+onu 47 type F601 sn ZNTS2C2013CF
+exit
+interface gpon_onu-1/1/2:47
+name 
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 301
+exit
+interface vport-1/1/2.47:1
+service-port 1 user-vlan 301 vlan 301
+exit
+pon-onu-mng gpon_onu-1/1/2:47
+service 1 gemport 1 vlan 301
+vlan port eth_0/1 mode tag vlan 301
+end
+
+conf t
+interface gpon_olt-1/1/2
+onu 49 type F601 sn ITBS5F80F049
+exit
+interface gpon_onu-1/1/2:49
+name 
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 301
+exit
+interface vport-1/1/2.49:1
+service-port 1 user-vlan 301 vlan 301
+exit
+pon-onu-mng gpon_onu-1/1/2:49
+service 1 gemport 1 vlan 301
+vlan port eth_0/1 mode tag vlan 301
+end
+
+conf t
+interface gpon_olt-1/1/2
+onu 51 type F601 sn FHTT094E56A2
+exit
+interface gpon_onu-1/1/2:51
+name 
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 301
+exit
+interface vport-1/1/2.51:1
+service-port 1 user-vlan 301 vlan 301
+exit
+pon-onu-mng gpon_onu-1/1/2:51
+service 1 gemport 1 vlan 301
+vlan port eth_0/1 mode tag vlan 301
+end
+
+write
+

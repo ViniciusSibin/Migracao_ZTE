@@ -64,6 +64,16 @@ if(!empty($_POST)) {
                 $sn = trim($sn);
                 $usuario = trim($usuario);
 
+                if(strpos($usuario, "PRC") !== false || strpos($usuario, "prc") !== false){
+                    $vlan = 239;
+                } elseif(strpos($usuario, "DALLAS") !== false || strpos($usuario, "dallas") !== false){
+                    $vlan = 612;
+                } elseif(strpos($usuario, "INTERSUL") !== false || strpos($usuario, "intersul") !== false){
+                    $vlan = 310;
+                } elseif(strpos($usuario, "SINGULAR") !== false || strpos($usuario, "singular") !== false){
+                    $vlan = 647;
+                }
+
                 //Monta o script com as insformações do usuário
                 $script = "conf t\ninterface gpon_olt-$pon\nonu $id type F601 sn $sn\nexit\ninterface gpon_onu-$pon:$id\nname $usuario\nvport-mode manual\nvport 1 map-type vlan\ntcont 1 profile 1G\ngemport 1 tcont 1\nvport-map 1 1 vlan $vlan\nexit\ninterface vport-$pon.$id:1\nservice-port 1 user-vlan $vlan vlan $vlan\nexit\npon-onu-mng gpon_onu-$pon:$id\nservice 1 gemport 1 vlan $vlan\nvlan port eth_0/1 mode tag vlan $vlan\nend\n\n";
             
@@ -115,7 +125,16 @@ if(!empty($_POST)) {
 
                     //echo "<br><br>User: $usuario<br>Serial: $sn<br>ID:$id<br>Slot: $slot<br>Pon: $pon<br>";
                     
-                    
+                    if(strpos($usuario, "PRC") !== false || strpos($usuario, "prc") !== false){
+                    $vlan = 239;
+                } elseif(strpos($usuario, "DALLAS") !== false || strpos($usuario, "dallas") !== false){
+                    $vlan = 612;
+                } elseif(strpos($usuario, "INTERSUL") !== false || strpos($usuario, "intersul") !== false){
+                    $vlan = 310;
+                } elseif(strpos($usuario, "SINGULAR") !== false || strpos($usuario, "singular") !== false){
+                    $vlan = 647;
+                }
+
                     //Monta o script com as insformações do usuário
                     $script = "conf t\ninterface gpon_olt-1/$slot/$pon\nonu $id type F601 sn $sn\nexit\ninterface gpon_onu-1/$slot/$pon:$id\nname $usuario\nvport-mode manual\nvport 1 map-type vlan\ntcont 1 profile 1G\ngemport 1 tcont 1\nvport-map 1 1 vlan $vlan\nexit\ninterface vport-1/$slot/$pon.$id:1\nservice-port 1 user-vlan $vlan vlan $vlan\nexit\npon-onu-mng gpon_onu-1/$slot/$pon:$id\nservice 1 gemport 1 vlan $vlan\nvlan port eth_0/1 mode tag vlan $vlan\nend\n\n";
                     
@@ -195,7 +214,16 @@ if(!empty($_POST)) {
                     
                     //echo "<br><br>User: $usuario<br>Serial: $sn<br>ID:$id<br>Slot: $slot<br>Pon: $pon<br>";
                     
-                    
+                    if(strpos($usuario, "PRC") !== false || strpos($usuario, "prc") !== false){
+                    $vlan = 239;
+                } elseif(strpos($usuario, "DALLAS") !== false || strpos($usuario, "dallas") !== false){
+                    $vlan = 612;
+                } elseif(strpos($usuario, "INTERSUL") !== false || strpos($usuario, "intersul") !== false){
+                    $vlan = 310;
+                } elseif(strpos($usuario, "SINGULAR") !== false || strpos($usuario, "singular") !== false){
+                    $vlan = 647;
+                }
+
                     //Monta o script com as insformações do usuário
                     $script = "conf t\ninterface gpon_olt-1/$slot/$pon\nonu $id type F601 sn $sn\nexit\ninterface gpon_onu-1/$slot/$pon:$id\nname $usuario\nvport-mode manual\nvport 1 map-type vlan\ntcont 1 profile 1G\ngemport 1 tcont 1\nvport-map 1 1 vlan $vlan\nexit\ninterface vport-1/$slot/$pon.$id:1\nservice-port 1 user-vlan $vlan vlan $vlan\nexit\npon-onu-mng gpon_onu-1/$slot/$pon:$id\nservice 1 gemport 1 vlan $vlan\nvlan port eth_0/1 mode tag vlan $vlan\nend\n\n";
                     
@@ -236,6 +264,16 @@ if(!empty($_POST)) {
 
                 $usuario = trim($usuario);
                 
+                if(strpos($usuario, "PRC") !== false || strpos($usuario, "prc") !== false){
+                    $vlan = 239;
+                } elseif(strpos($usuario, "DALLAS") !== false || strpos($usuario, "dallas") !== false){
+                    $vlan = 612;
+                } elseif(strpos($usuario, "INTERSUL") !== false || strpos($usuario, "intersul") !== false){
+                    $vlan = 310;
+                } elseif(strpos($usuario, "SINGULAR") !== false || strpos($usuario, "singular") !== false){
+                    $vlan = 647;
+                }
+
                 //echo "<br><br>User: $usuario<br>Serial: $sn<br>ID:$id<br>Slot: $slot<br>Pon: $pon<br>";
 
                 //Monta o script com as insformações do usuário
@@ -262,6 +300,15 @@ if(!empty($_POST)) {
                 $slot = trim($slot);
                 $sn = trim($parts[2]);
 
+                if(strpos($usuario, "PRC") !== false || strpos($usuario, "prc") !== false){
+                    $vlan = 239;
+                } elseif(strpos($usuario, "DALLAS") !== false || strpos($usuario, "dallas") !== false){
+                    $vlan = 612;
+                } elseif(strpos($usuario, "INTERSUL") !== false || strpos($usuario, "intersul") !== false){
+                    $vlan = 310;
+                } elseif(strpos($usuario, "SINGULAR") !== false || strpos($usuario, "singular") !== false){
+                    $vlan = 647;
+                }
 
                 //echo "<br><br>User: $usuario<br>Serial: $sn<br>ID:$id<br>Slot: $slot<br>Pon: $pon<br>";
                 
@@ -302,6 +349,16 @@ if(!empty($_POST)) {
                 $id = trim($parts[1]);
                 $sn = trim($parts[5]);
                 $usuario = isset($parts[6]) ? trim($parts[6]) : "";
+
+                if(strpos($usuario, "PRC") !== false || strpos($usuario, "prc") !== false){
+                    $vlan = 239;
+                } elseif(strpos($usuario, "DALLAS") !== false || strpos($usuario, "dallas") !== false){
+                    $vlan = 612;
+                } elseif(strpos($usuario, "INTERSUL") !== false || strpos($usuario, "intersul") !== false){
+                    $vlan = 310;
+                } elseif(strpos($usuario, "SINGULAR") !== false || strpos($usuario, "singular") !== false){
+                    $vlan = 647;
+                }
 
                 //echo "<br><br>User: $usuario<br>Serial: $sn<br>ID:$id<br>Slot: $slot<br>Pon: $pon<br>";
                 
