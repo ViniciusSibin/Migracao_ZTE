@@ -301,8 +301,7 @@ if(!empty($_POST)) {
                 $slot = trim($slot);
                 $id = trim($parts[1]);
                 $sn = trim($parts[5]);
-                $usuario = trim($parts[6]);
-
+                $usuario = isset($parts[6]) ? trim($parts[6]) : "";
 
                 //echo "<br><br>User: $usuario<br>Serial: $sn<br>ID:$id<br>Slot: $slot<br>Pon: $pon<br>";
                 
