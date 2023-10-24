@@ -72,6 +72,8 @@ if(!empty($_POST)) {
                     $vlan = 310;
                 } elseif(strpos($usuario, "SINGULAR") !== false || strpos($usuario, "singular") !== false){
                     $vlan = 647;
+                } else {
+                    $vlan = $_POST['vlan'];
                 }
 
                 //Monta o script com as insformações do usuário
@@ -133,6 +135,8 @@ if(!empty($_POST)) {
                     $vlan = 310;
                 } elseif(strpos($usuario, "SINGULAR") !== false || strpos($usuario, "singular") !== false){
                     $vlan = 647;
+                } else {
+                    $vlan = $_POST['vlan'];
                 }
 
                     //Monta o script com as insformações do usuário
@@ -222,6 +226,8 @@ if(!empty($_POST)) {
                     $vlan = 310;
                 } elseif(strpos($usuario, "SINGULAR") !== false || strpos($usuario, "singular") !== false){
                     $vlan = 647;
+                } else {
+                    $vlan = $_POST['vlan'];
                 }
 
                     //Monta o script com as insformações do usuário
@@ -272,6 +278,8 @@ if(!empty($_POST)) {
                     $vlan = 310;
                 } elseif(strpos($usuario, "SINGULAR") !== false || strpos($usuario, "singular") !== false){
                     $vlan = 647;
+                } else {
+                    $vlan = $_POST['vlan'];
                 }
 
                 //echo "<br><br>User: $usuario<br>Serial: $sn<br>ID:$id<br>Slot: $slot<br>Pon: $pon<br>";
@@ -308,6 +316,8 @@ if(!empty($_POST)) {
                     $vlan = 310;
                 } elseif(strpos($usuario, "SINGULAR") !== false || strpos($usuario, "singular") !== false){
                     $vlan = 647;
+                } else {
+                    $vlan = $_POST['vlan'];
                 }
 
                 //echo "<br><br>User: $usuario<br>Serial: $sn<br>ID:$id<br>Slot: $slot<br>Pon: $pon<br>";
@@ -358,6 +368,8 @@ if(!empty($_POST)) {
                     $vlan = 310;
                 } elseif(strpos($usuario, "SINGULAR") !== false || strpos($usuario, "singular") !== false){
                     $vlan = 647;
+                } else {
+                    $vlan = $_POST['vlan'];
                 }
 
                 //echo "<br><br>User: $usuario<br>Serial: $sn<br>ID:$id<br>Slot: $slot<br>Pon: $pon<br>";
