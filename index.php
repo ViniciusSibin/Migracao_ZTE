@@ -383,6 +383,47 @@ if(!empty($_POST)) {
                 fwrite($arquivoDestino, $script);
             }
             $finalizado = True;
+        } elseif($fabricante == "INTELBRAS"){
+            $linhas = explode("\n", $conteudo);
+            
+            foreach($linhas as $linha){
+                if (empty(trim($linha))) {
+                    continue;
+                }
+
+                // Divide a string em partes com base nos espaços em branco
+                $parts = preg_split('/\s+/', $linha);
+
+                // Remova os espaços extras dos valores, se necessário
+                $pon = trim($pon);
+                $slot = trim($slot);
+                $id = trim($parts[3]);
+                $sn = trim($parts[5]) . trim($parts[4]);
+                $usuario = isset($parts[9]) ? trim($parts[9]) : "";
+
+                if(strpos($usuario, "PRC") !== false || strpos($usuario, "prc") !== false){
+                    $vlan = 239;
+                } elseif(strpos($usuario, "DALLAS") !== false || strpos($usuario, "dallas") !== false){
+                    $vlan = 612;
+                } elseif(strpos($usuario, "INTERSUL") !== false || strpos($usuario, "intersul") !== false){
+                    $vlan = 310;
+                } elseif(strpos($usuario, "SINGULAR") !== false || strpos($usuario, "singular") !== false){
+                    $vlan = 647;
+                } else {
+                    $vlan = $_POST['vlan'];
+                }
+
+                //echo "<br><br>User: $usuario<br>Serial: $sn<br>ID:$id<br>Slot: $slot<br>Pon: $pon<br>";
+                
+                
+                //Monta o script com as insformações do usuário
+                $script = "conf t\ninterface gpon_olt-1/$slot/$pon\nonu $id type F601 sn $sn\nexit\ninterface gpon_onu-1/$slot/$pon:$id\nname $usuario\nvport-mode manual\nvport 1 map-type vlan\ntcont 1 profile 1G\ngemport 1 tcont 1\nvport-map 1 1 vlan $vlan\nexit\ninterface vport-1/$slot/$pon.$id:1\nservice-port 1 user-vlan $vlan vlan $vlan\nexit\npon-onu-mng gpon_onu-1/$slot/$pon:$id\nservice 1 gemport 1 vlan $vlan\nvlan port eth_0/1 mode tag vlan $vlan\nend\n\n";
+                
+                //echo "<br><br>$script";
+                
+                fwrite($arquivoDestino, $script);
+            }
+            $finalizado = True;
         }
     }
 
