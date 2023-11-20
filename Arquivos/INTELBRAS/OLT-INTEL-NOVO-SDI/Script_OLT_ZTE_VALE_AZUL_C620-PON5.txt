@@ -1,0 +1,122 @@
+conf t
+interface gpon_olt-1/1/5
+onu 1 type F601 sn ITBS0D2BB847
+exit
+interface gpon_onu-1/1/5:1
+name 
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 248
+exit
+interface vport-1/1/5.1:1
+service-port 1 user-vlan 248 vlan 248
+exit
+pon-onu-mng gpon_onu-1/1/5:1
+service 1 gemport 1 vlan 248
+vlan port eth_0/1 mode tag vlan 248
+end
+
+conf t
+interface gpon_olt-1/1/5
+onu 2 type F601 sn ITBS0D2BB695
+exit
+interface gpon_onu-1/1/5:2
+name 
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 248
+exit
+interface vport-1/1/5.2:1
+service-port 1 user-vlan 248 vlan 248
+exit
+pon-onu-mng gpon_onu-1/1/5:2
+service 1 gemport 1 vlan 248
+vlan port eth_0/1 mode tag vlan 248
+end
+
+conf t
+interface gpon_olt-1/1/5
+onu 3 type F601 sn ITBS2C42DA50
+exit
+interface gpon_onu-1/1/5:3
+name PRC_paulo.oliveira_4291
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 239
+exit
+interface vport-1/1/5.3:1
+service-port 1 user-vlan 239 vlan 239
+exit
+pon-onu-mng gpon_onu-1/1/5:3
+service 1 gemport 1 vlan 239
+vlan port eth_0/1 mode tag vlan 239
+end
+
+conf t
+interface gpon_olt-1/1/5
+onu 4 type F601 sn TPLG06051017
+exit
+interface gpon_onu-1/1/5:4
+name SINGULAR_nelson.silva
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 647
+exit
+interface vport-1/1/5.4:1
+service-port 1 user-vlan 647 vlan 647
+exit
+pon-onu-mng gpon_onu-1/1/5:4
+service 1 gemport 1 vlan 647
+vlan port eth_0/1 mode tag vlan 647
+end
+
+conf t
+interface gpon_olt-1/1/5
+onu 5 type F601 sn ITBS0DD99BE7
+exit
+interface gpon_onu-1/1/5:5
+name 
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 248
+exit
+interface vport-1/1/5.5:1
+service-port 1 user-vlan 248 vlan 248
+exit
+pon-onu-mng gpon_onu-1/1/5:5
+service 1 gemport 1 vlan 248
+vlan port eth_0/1 mode tag vlan 248
+end
+
+conf t
+interface gpon_olt-1/1/5
+onu 6 type F601 sn ITBSF11EB39A
+exit
+interface gpon_onu-1/1/5:6
+name 
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 248
+exit
+interface vport-1/1/5.6:1
+service-port 1 user-vlan 248 vlan 248
+exit
+pon-onu-mng gpon_onu-1/1/5:6
+service 1 gemport 1 vlan 248
+vlan port eth_0/1 mode tag vlan 248
+end
+
+write
+

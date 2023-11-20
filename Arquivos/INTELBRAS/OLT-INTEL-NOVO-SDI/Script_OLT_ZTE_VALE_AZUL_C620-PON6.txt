@@ -1,0 +1,62 @@
+conf t
+interface gpon_olt-1/1/6
+onu 1 type F601 sn ITBSCFCC0DD4
+exit
+interface gpon_onu-1/1/6:1
+name 
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 248
+exit
+interface vport-1/1/6.1:1
+service-port 1 user-vlan 248 vlan 248
+exit
+pon-onu-mng gpon_onu-1/1/6:1
+service 1 gemport 1 vlan 248
+vlan port eth_0/1 mode tag vlan 248
+end
+
+conf t
+interface gpon_olt-1/1/6
+onu 2 type F601 sn ITBS5FB7D231
+exit
+interface gpon_onu-1/1/6:2
+name 
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 248
+exit
+interface vport-1/1/6.2:1
+service-port 1 user-vlan 248 vlan 248
+exit
+pon-onu-mng gpon_onu-1/1/6:2
+service 1 gemport 1 vlan 248
+vlan port eth_0/1 mode tag vlan 248
+end
+
+conf t
+interface gpon_olt-1/1/6
+onu 5 type F601 sn FHTT09480D52
+exit
+interface gpon_onu-1/1/6:5
+name 
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 248
+exit
+interface vport-1/1/6.5:1
+service-port 1 user-vlan 248 vlan 248
+exit
+pon-onu-mng gpon_onu-1/1/6:5
+service 1 gemport 1 vlan 248
+vlan port eth_0/1 mode tag vlan 248
+end
+
+write
+
