@@ -1,0 +1,262 @@
+conf t
+interface gpon_olt-1/1/8
+onu 1 type F601 sn HWTC37D63C7F
+exit
+interface gpon_onu-1/1/8:1
+name jhon.robert.097
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 205
+exit
+interface vport-1/1/8.1:1
+service-port 1 user-vlan 205 vlan 205
+exit
+pon-onu-mng gpon_onu-1/1/8:1
+service 1 gemport 1 vlan 205
+vlan port eth_0/1 mode tag vlan 205
+end
+
+conf t
+interface gpon_olt-1/1/8
+onu 2 type F601 sn HWTC1A038147
+exit
+interface gpon_onu-1/1/8:2
+name andreliana.aparecida.904
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 205
+exit
+interface vport-1/1/8.2:1
+service-port 1 user-vlan 205 vlan 205
+exit
+pon-onu-mng gpon_onu-1/1/8:2
+service 1 gemport 1 vlan 205
+vlan port eth_0/1 mode tag vlan 205
+end
+
+conf t
+interface gpon_olt-1/1/8
+onu 3 type F601 sn HWTC3049167F
+exit
+interface gpon_onu-1/1/8:3
+name --
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 205
+exit
+interface vport-1/1/8.3:1
+service-port 1 user-vlan 205 vlan 205
+exit
+pon-onu-mng gpon_onu-1/1/8:3
+service 1 gemport 1 vlan 205
+vlan port eth_0/1 mode tag vlan 205
+end
+
+conf t
+interface gpon_olt-1/1/8
+onu 4 type F601 sn HWTC9BE8719F
+exit
+interface gpon_onu-1/1/8:4
+name pamela.calixto.117
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 205
+exit
+interface vport-1/1/8.4:1
+service-port 1 user-vlan 205 vlan 205
+exit
+pon-onu-mng gpon_onu-1/1/8:4
+service 1 gemport 1 vlan 205
+vlan port eth_0/1 mode tag vlan 205
+end
+
+conf t
+interface gpon_olt-1/1/8
+onu 5 type F601 sn ITBS2C7D0FD7
+exit
+interface gpon_onu-1/1/8:5
+name --
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 205
+exit
+interface vport-1/1/8.5:1
+service-port 1 user-vlan 205 vlan 205
+exit
+pon-onu-mng gpon_onu-1/1/8:5
+service 1 gemport 1 vlan 205
+vlan port eth_0/1 mode tag vlan 205
+end
+
+conf t
+interface gpon_olt-1/1/8
+onu 6 type F601 sn HWTCBD91BC42
+exit
+interface gpon_onu-1/1/8:6
+name antonio.sousa
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 205
+exit
+interface vport-1/1/8.6:1
+service-port 1 user-vlan 205 vlan 205
+exit
+pon-onu-mng gpon_onu-1/1/8:6
+service 1 gemport 1 vlan 205
+vlan port eth_0/1 mode tag vlan 205
+end
+
+conf t
+interface gpon_olt-1/1/8
+onu 7 type F601 sn HWTCA8CAB762
+exit
+interface gpon_onu-1/1/8:7
+name francisco.elton
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 205
+exit
+interface vport-1/1/8.7:1
+service-port 1 user-vlan 205 vlan 205
+exit
+pon-onu-mng gpon_onu-1/1/8:7
+service 1 gemport 1 vlan 205
+vlan port eth_0/1 mode tag vlan 205
+end
+
+conf t
+interface gpon_olt-1/1/8
+onu 8 type F601 sn HWTC5DDAD030
+exit
+interface gpon_onu-1/1/8:8
+name jailson.gomes.042
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 205
+exit
+interface vport-1/1/8.8:1
+service-port 1 user-vlan 205 vlan 205
+exit
+pon-onu-mng gpon_onu-1/1/8:8
+service 1 gemport 1 vlan 205
+vlan port eth_0/1 mode tag vlan 205
+end
+
+conf t
+interface gpon_olt-1/1/8
+onu 12 type F601 sn HWTC5E858A55
+exit
+interface gpon_onu-1/1/8:12
+name PRC-raquel.salin (4698)
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 239
+exit
+interface vport-1/1/8.12:1
+service-port 1 user-vlan 239 vlan 239
+exit
+pon-onu-mng gpon_onu-1/1/8:12
+service 1 gemport 1 vlan 239
+vlan port eth_0/1 mode tag vlan 239
+end
+
+conf t
+interface gpon_olt-1/1/8
+onu 13 type F601 sn HWTC79CB3C4D
+exit
+interface gpon_onu-1/1/8:13
+name PRC-edilson.silva (2171)
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 239
+exit
+interface vport-1/1/8.13:1
+service-port 1 user-vlan 239 vlan 239
+exit
+pon-onu-mng gpon_onu-1/1/8:13
+service 1 gemport 1 vlan 239
+vlan port eth_0/1 mode tag vlan 239
+end
+
+conf t
+interface gpon_olt-1/1/8
+onu 15 type F601 sn HWTC57A65662
+exit
+interface gpon_onu-1/1/8:15
+name silvia.victorino
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 205
+exit
+interface vport-1/1/8.15:1
+service-port 1 user-vlan 205 vlan 205
+exit
+pon-onu-mng gpon_onu-1/1/8:15
+service 1 gemport 1 vlan 205
+vlan port eth_0/1 mode tag vlan 205
+end
+
+conf t
+interface gpon_olt-1/1/8
+onu 18 type F601 sn HWTCE288CC3D
+exit
+interface gpon_onu-1/1/8:18
+name magdielnegraofibra
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 205
+exit
+interface vport-1/1/8.18:1
+service-port 1 user-vlan 205 vlan 205
+exit
+pon-onu-mng gpon_onu-1/1/8:18
+service 1 gemport 1 vlan 205
+vlan port eth_0/1 mode tag vlan 205
+end
+
+conf t
+interface gpon_olt-1/1/8
+onu 20 type F601 sn HWTC9BE8D89F
+exit
+interface gpon_onu-1/1/8:20
+name PRC-gelson.souza
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 239
+exit
+interface vport-1/1/8.20:1
+service-port 1 user-vlan 239 vlan 239
+exit
+pon-onu-mng gpon_onu-1/1/8:20
+service 1 gemport 1 vlan 239
+vlan port eth_0/1 mode tag vlan 239
+end
+
+write
+

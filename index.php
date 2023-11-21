@@ -440,7 +440,7 @@ if(!empty($_POST)) {
                         // Remova os espaços extras dos valores, se necessário
                         $slot = trim($parts[4]);
                         $pon = trim($parts[5]) + 1;
-                        $id = trim($parts[6]);
+                        $id = trim($parts[6]) + 1;
 
                         preg_match('/\((.*?)\)/', $parts[19], $matches);
 
