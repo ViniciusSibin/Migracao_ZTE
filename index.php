@@ -64,14 +64,20 @@ if(!empty($_POST)) {
                 $sn = trim($sn);
                 $usuario = trim($usuario);
 
+                $usuario = strtolower($usuario);
+
                 if(strpos($usuario, "PRC") !== false || strpos($usuario, "prc") !== false){
                     $vlan = 239;
                 } elseif(strpos($usuario, "DALLAS") !== false || strpos($usuario, "dallas") !== false){
-                    $vlan = 612;
+                    $vlan = 332;
                 } elseif(strpos($usuario, "INTERSUL") !== false || strpos($usuario, "intersul") !== false){
-                    $vlan = 310;
+                    $vlan = 308;
                 } elseif(strpos($usuario, "SINGULAR") !== false || strpos($usuario, "singular") !== false){
                     $vlan = 647;
+                } elseif(strpos($usuario, "ISUPER") !== false || strpos($usuario, "isuper") !== false){
+                    $vlan = 662;
+                } elseif(strpos($usuario, "BRISA") !== false || strpos($usuario, "brisa") !== false){
+                    $vlan = 236;
                 } else {
                     $vlan = $_POST['vlan'];
                 }
@@ -127,14 +133,20 @@ if(!empty($_POST)) {
 
                     //echo "<br><br>User: $usuario<br>Serial: $sn<br>ID:$id<br>Slot: $slot<br>Pon: $pon<br>";
                     
-                    if(strpos($usuario, "PRC") !== false || strpos($usuario, "prc") !== false){
+                    $usuario = strtolower($usuario);
+
+                if(strpos($usuario, "PRC") !== false || strpos($usuario, "prc") !== false){
                     $vlan = 239;
                 } elseif(strpos($usuario, "DALLAS") !== false || strpos($usuario, "dallas") !== false){
-                    $vlan = 612;
+                    $vlan = 332;
                 } elseif(strpos($usuario, "INTERSUL") !== false || strpos($usuario, "intersul") !== false){
-                    $vlan = 310;
+                    $vlan = 308;
                 } elseif(strpos($usuario, "SINGULAR") !== false || strpos($usuario, "singular") !== false){
                     $vlan = 647;
+                } elseif(strpos($usuario, "ISUPER") !== false || strpos($usuario, "isuper") !== false){
+                    $vlan = 662;
+                } elseif(strpos($usuario, "BRISA") !== false || strpos($usuario, "brisa") !== false){
+                    $vlan = 236;
                 } else {
                     $vlan = $_POST['vlan'];
                 }
@@ -218,14 +230,20 @@ if(!empty($_POST)) {
                     
                     //echo "<br><br>User: $usuario<br>Serial: $sn<br>ID:$id<br>Slot: $slot<br>Pon: $pon<br>";
                     
-                    if(strpos($usuario, "PRC") !== false || strpos($usuario, "prc") !== false){
+                    $usuario = strtolower($usuario);
+
+                if(strpos($usuario, "PRC") !== false || strpos($usuario, "prc") !== false){
                     $vlan = 239;
                 } elseif(strpos($usuario, "DALLAS") !== false || strpos($usuario, "dallas") !== false){
-                    $vlan = 612;
+                    $vlan = 332;
                 } elseif(strpos($usuario, "INTERSUL") !== false || strpos($usuario, "intersul") !== false){
-                    $vlan = 310;
+                    $vlan = 308;
                 } elseif(strpos($usuario, "SINGULAR") !== false || strpos($usuario, "singular") !== false){
                     $vlan = 647;
+                } elseif(strpos($usuario, "ISUPER") !== false || strpos($usuario, "isuper") !== false){
+                    $vlan = 662;
+                } elseif(strpos($usuario, "BRISA") !== false || strpos($usuario, "brisa") !== false){
+                    $vlan = 236;
                 } else {
                     $vlan = $_POST['vlan'];
                 }
@@ -270,14 +288,20 @@ if(!empty($_POST)) {
 
                 $usuario = trim($usuario);
                 
+                $usuario = strtolower($usuario);
+
                 if(strpos($usuario, "PRC") !== false || strpos($usuario, "prc") !== false){
                     $vlan = 239;
                 } elseif(strpos($usuario, "DALLAS") !== false || strpos($usuario, "dallas") !== false){
-                    $vlan = 612;
+                    $vlan = 332;
                 } elseif(strpos($usuario, "INTERSUL") !== false || strpos($usuario, "intersul") !== false){
-                    $vlan = 310;
+                    $vlan = 308;
                 } elseif(strpos($usuario, "SINGULAR") !== false || strpos($usuario, "singular") !== false){
                     $vlan = 647;
+                } elseif(strpos($usuario, "ISUPER") !== false || strpos($usuario, "isuper") !== false){
+                    $vlan = 662;
+                } elseif(strpos($usuario, "BRISA") !== false || strpos($usuario, "brisa") !== false){
+                    $vlan = 236;
                 } else {
                     $vlan = $_POST['vlan'];
                 }
@@ -308,14 +332,20 @@ if(!empty($_POST)) {
                 $slot = trim($slot);
                 $sn = trim($parts[2]);
 
+                $usuario = strtolower($usuario);
+
                 if(strpos($usuario, "PRC") !== false || strpos($usuario, "prc") !== false){
                     $vlan = 239;
                 } elseif(strpos($usuario, "DALLAS") !== false || strpos($usuario, "dallas") !== false){
-                    $vlan = 612;
+                    $vlan = 332;
                 } elseif(strpos($usuario, "INTERSUL") !== false || strpos($usuario, "intersul") !== false){
-                    $vlan = 310;
+                    $vlan = 308;
                 } elseif(strpos($usuario, "SINGULAR") !== false || strpos($usuario, "singular") !== false){
                     $vlan = 647;
+                } elseif(strpos($usuario, "ISUPER") !== false || strpos($usuario, "isuper") !== false){
+                    $vlan = 662;
+                } elseif(strpos($usuario, "BRISA") !== false || strpos($usuario, "brisa") !== false){
+                    $vlan = 236;
                 } else {
                     $vlan = $_POST['vlan'];
                 }
@@ -360,14 +390,20 @@ if(!empty($_POST)) {
                 $sn = trim($parts[5]);
                 $usuario = isset($parts[6]) ? trim($parts[6]) : "";
 
+                $usuario = strtolower($usuario);
+
                 if(strpos($usuario, "PRC") !== false || strpos($usuario, "prc") !== false){
                     $vlan = 239;
                 } elseif(strpos($usuario, "DALLAS") !== false || strpos($usuario, "dallas") !== false){
-                    $vlan = 612;
+                    $vlan = 332;
                 } elseif(strpos($usuario, "INTERSUL") !== false || strpos($usuario, "intersul") !== false){
-                    $vlan = 310;
+                    $vlan = 308;
                 } elseif(strpos($usuario, "SINGULAR") !== false || strpos($usuario, "singular") !== false){
                     $vlan = 647;
+                } elseif(strpos($usuario, "ISUPER") !== false || strpos($usuario, "isuper") !== false){
+                    $vlan = 662;
+                } elseif(strpos($usuario, "BRISA") !== false || strpos($usuario, "brisa") !== false){
+                    $vlan = 236;
                 } else {
                     $vlan = $_POST['vlan'];
                 }
@@ -401,14 +437,20 @@ if(!empty($_POST)) {
                 $sn = trim($parts[5]) . trim($parts[4]);
                 $usuario = isset($parts[9]) ? trim($parts[9]) : "";
 
+                $usuario = strtolower($usuario);
+
                 if(strpos($usuario, "PRC") !== false || strpos($usuario, "prc") !== false){
                     $vlan = 239;
                 } elseif(strpos($usuario, "DALLAS") !== false || strpos($usuario, "dallas") !== false){
-                    $vlan = 612;
+                    $vlan = 332;
                 } elseif(strpos($usuario, "INTERSUL") !== false || strpos($usuario, "intersul") !== false){
-                    $vlan = 310;
+                    $vlan = 308;
                 } elseif(strpos($usuario, "SINGULAR") !== false || strpos($usuario, "singular") !== false){
                     $vlan = 647;
+                } elseif(strpos($usuario, "ISUPER") !== false || strpos($usuario, "isuper") !== false){
+                    $vlan = 662;
+                } elseif(strpos($usuario, "BRISA") !== false || strpos($usuario, "brisa") !== false){
+                    $vlan = 236;
                 } else {
                     $vlan = $_POST['vlan'];
                 }
