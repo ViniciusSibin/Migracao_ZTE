@@ -1,0 +1,22 @@
+conf t
+interface gpon_olt-1/2/3
+onu 1 type F601 sn ZTEGD1CA584C
+exit
+interface gpon_onu-1/2/3:1
+name claudia.garcia.330-01
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 415
+exit
+interface vport-1/2/3.1:1
+service-port 1 user-vlan 415 vlan 415
+exit
+pon-onu-mng gpon_onu-1/2/3:1
+service 1 gemport 1 vlan 415
+vlan port eth_0/1 mode tag vlan 415
+end
+
+write
+

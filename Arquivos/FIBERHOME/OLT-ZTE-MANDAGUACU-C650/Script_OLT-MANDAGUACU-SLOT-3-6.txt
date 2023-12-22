@@ -1,0 +1,42 @@
+conf t
+interface gpon_olt-1/2/4
+onu 2 type F601 sn FHTT921C74A0
+exit
+interface gpon_onu-1/2/4:2
+name berenice.santos.054-05
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 415
+exit
+interface vport-1/2/4.2:1
+service-port 1 user-vlan 415 vlan 415
+exit
+pon-onu-mng gpon_onu-1/2/4:2
+service 1 gemport 1 vlan 415
+vlan port eth_0/1 mode tag vlan 415
+end
+
+conf t
+interface gpon_olt-1/2/4
+onu 3 type F601 sn FHTT92954AF0
+exit
+interface gpon_onu-1/2/4:3
+name adriano.fsantos.037@mdgcu
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 415
+exit
+interface vport-1/2/4.3:1
+service-port 1 user-vlan 415 vlan 415
+exit
+pon-onu-mng gpon_onu-1/2/4:3
+service 1 gemport 1 vlan 415
+vlan port eth_0/1 mode tag vlan 415
+end
+
+write
+

@@ -1,0 +1,1422 @@
+conf t
+interface gpon_olt-1/1/4
+onu 1 type F601 sn ITBS5FCE661C
+exit
+interface gpon_onu-1/1/4:1
+name di.legno.477
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.1:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:1
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 2 type F601 sn FHTT1007BE00
+exit
+interface gpon_onu-1/1/4:2
+name andreia.monteiro.030
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.2:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:2
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 3 type F601 sn ITBS5FED300F
+exit
+interface gpon_onu-1/1/4:3
+name marcio.machadoo.035-08
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.3:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:3
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 4 type F601 sn ZNTS2C10756C
+exit
+interface gpon_onu-1/1/4:4
+name claudio.faria
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.4:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:4
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 5 type F601 sn FHTT04F4C060
+exit
+interface gpon_onu-1/1/4:5
+name patricia.correia-08
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.5:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:5
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 6 type F601 sn ITBS8B5F92D8
+exit
+interface gpon_onu-1/1/4:6
+name jefferson.jesus.071
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.6:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:6
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 7 type F601 sn ITBSF155DEEC
+exit
+interface gpon_onu-1/1/4:7
+name kevin.viana.118-07
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.7:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:7
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 8 type F601 sn ITBS2C9D2810
+exit
+interface gpon_onu-1/1/4:8
+name geni.silva-08
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.8:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:8
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 9 type F601 sn FHTT10117C50
+exit
+interface gpon_onu-1/1/4:9
+name laudiceia1.fraga-08
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.9:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:9
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 10 type F601 sn FHTT101B0368
+exit
+interface gpon_onu-1/1/4:10
+name jonathan.silva-07
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.10:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:10
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 11 type F601 sn ITBSCFF0F886
+exit
+interface gpon_onu-1/1/4:11
+name robsin.jesus.175-04
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.11:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:11
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 12 type F601 sn ITBS5F44842E
+exit
+interface gpon_onu-1/1/4:12
+name gustavo.nascimento.115-07
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.12:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:12
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 13 type F601 sn ZNTS2C007126
+exit
+interface gpon_onu-1/1/4:13
+name gabriel.costa.125
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.13:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:13
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 14 type F601 sn ITBS5FCE6A76
+exit
+interface gpon_onu-1/1/4:14
+name isabelli.hoffmann.070
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.14:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:14
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 15 type F601 sn FHTT0946942A
+exit
+interface gpon_onu-1/1/4:15
+name geni.franschini 29406
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.15:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:15
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 16 type F601 sn GPON002BDD40
+exit
+interface gpon_onu-1/1/4:16
+name jose.macaris.236-07
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.16:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:16
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 17 type F601 sn ITBS0D2BBFFF
+exit
+interface gpon_onu-1/1/4:17
+name sidney.costa.958-08
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.17:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:17
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 18 type F601 sn FHTT06EF2650
+exit
+interface gpon_onu-1/1/4:18
+name simone.silva-07
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.18:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:18
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 19 type F601 sn ITBSE8F7FFAB
+exit
+interface gpon_onu-1/1/4:19
+name roberson.negri-07
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.19:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:19
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 20 type F601 sn FHTT09161868
+exit
+interface gpon_onu-1/1/4:20
+name marcelod.alcantara-07
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.20:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:20
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 21 type F601 sn ITBS5F448293
+exit
+interface gpon_onu-1/1/4:21
+name maria.galani.896-08
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.21:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:21
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 22 type F601 sn ITBSCFDF8B44
+exit
+interface gpon_onu-1/1/4:22
+name luiscarlos.junior.089-05
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.22:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:22
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 23 type F601 sn FHTT09177900
+exit
+interface gpon_onu-1/1/4:23
+name julio.silvaa.081-08
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.23:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:23
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 24 type F601 sn ITBS5F447A28
+exit
+interface gpon_onu-1/1/4:24
+name jamilly.grando.027-08
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.24:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:24
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 25 type F601 sn ITBS5F79D31F
+exit
+interface gpon_onu-1/1/4:25
+name valdenice.rodrigues.054-08
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.25:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:25
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 26 type F601 sn FHTT173852E8
+exit
+interface gpon_onu-1/1/4:26
+name eliani.cano.062
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.26:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:26
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 27 type F601 sn ITBSF1C995CE
+exit
+interface gpon_onu-1/1/4:27
+name nair.cerchiari.015
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.27:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:27
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 28 type F601 sn ITBS0D2AC4F5
+exit
+interface gpon_onu-1/1/4:28
+name efigenia.freitas.516-07
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.28:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:28
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 29 type F601 sn FHTT101A8270
+exit
+interface gpon_onu-1/1/4:29
+name zeni.oliveira.446-06
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.29:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:29
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 30 type F601 sn ITBS8B681FBC
+exit
+interface gpon_onu-1/1/4:30
+name gleison.martins.939-02
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.30:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:30
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 31 type F601 sn ITBSF153B759
+exit
+interface gpon_onu-1/1/4:31
+name fabio.licoski.005
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.31:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:31
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 32 type F601 sn ITBS5FED2FA5
+exit
+interface gpon_onu-1/1/4:32
+name dorival.santos.104
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.32:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:32
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 33 type F601 sn FHTT2D2C0250
+exit
+interface gpon_onu-1/1/4:33
+name doralice.santos.668-08
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.33:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:33
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 34 type F601 sn FHTT921C3598
+exit
+interface gpon_onu-1/1/4:34
+name nadir.pivetta.513-07
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.34:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:34
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 35 type F601 sn ITBS2C4263EC
+exit
+interface gpon_onu-1/1/4:35
+name luan.oliveira.108
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.35:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:35
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 36 type F601 sn FHTT00087298
+exit
+interface gpon_onu-1/1/4:36
+name willians.ferreira.068-02
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.36:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:36
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 37 type F601 sn ITBS5F79CC2B
+exit
+interface gpon_onu-1/1/4:37
+name cidadeverde.sarandi.720-06
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.37:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:37
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 38 type F601 sn ZNTS2C0F8D58
+exit
+interface gpon_onu-1/1/4:38
+name marina.souza.020-07
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.38:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:38
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 39 type F601 sn ITBSE8C89093
+exit
+interface gpon_onu-1/1/4:39
+name alexandre.guido.089-07
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.39:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:39
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 40 type F601 sn ITBS5F80EB61
+exit
+interface gpon_onu-1/1/4:40
+name carlosr.silva.sdi
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.40:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:40
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 41 type F601 sn FHTT075E5820
+exit
+interface gpon_onu-1/1/4:41
+name luciana.santos.047-02
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.41:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:41
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 42 type F601 sn ITBS5F447972
+exit
+interface gpon_onu-1/1/4:42
+name edite.souza.011
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.42:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:42
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 43 type F601 sn ITBS5F80CC3D
+exit
+interface gpon_onu-1/1/4:43
+name leonice.nascimento.678-07
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.43:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:43
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 44 type F601 sn ITBS32BF16DC
+exit
+interface gpon_onu-1/1/4:44
+name jose3.batista
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.44:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:44
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 45 type F601 sn ITBSCFDF8B6A
+exit
+interface gpon_onu-1/1/4:45
+name leonardo.silva.097
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.45:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:45
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 46 type F601 sn ITBS8BF3FE43
+exit
+interface gpon_onu-1/1/4:46
+name jose.tudini.032-08
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.46:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:46
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 51 type F601 sn ITBS2C842BE9
+exit
+interface gpon_onu-1/1/4:51
+name jair.bonacine.193-07
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.51:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:51
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 52 type F601 sn ITBS2C93FF3D
+exit
+interface gpon_onu-1/1/4:52
+name prc-queila.santos-03
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 239
+exit
+interface vport-1/1/4.52:1
+service-port 1 user-vlan 239 vlan 239
+exit
+pon-onu-mng gpon_onu-1/1/4:52
+service 1 gemport 1 vlan 239
+vlan port eth_0/1 mode tag vlan 239
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 54 type F601 sn ZNTS3FF7B7D3
+exit
+interface gpon_onu-1/1/4:54
+name izabela.souza.124-07
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.54:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:54
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 56 type F601 sn ITBS2C7196DB
+exit
+interface gpon_onu-1/1/4:56
+name bruna1.fernandes.073-05
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.56:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:56
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 57 type F601 sn ITBSCFF0F89A
+exit
+interface gpon_onu-1/1/4:57
+name lucimara.amarante.773
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.57:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:57
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 58 type F601 sn ITBSCFF0F8A1
+exit
+interface gpon_onu-1/1/4:58
+name cleuza.santos.017-05
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.58:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:58
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 59 type F601 sn ITBSCF8C3F9B
+exit
+interface gpon_onu-1/1/4:59
+name edvaldo.jose.815-08
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.59:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:59
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 60 type F601 sn ITBS5FB7D367
+exit
+interface gpon_onu-1/1/4:60
+name jeferson.fonseca.109-04
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.60:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:60
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 61 type F601 sn ITBS2C70A3CB
+exit
+interface gpon_onu-1/1/4:61
+name edlaine.cruz.054
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.61:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:61
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 62 type F601 sn HWTC3DA1A562
+exit
+interface gpon_onu-1/1/4:62
+name antonio.gomes.019
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.62:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:62
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 63 type F601 sn MKPGB46F1BEC
+exit
+interface gpon_onu-1/1/4:63
+name leandro.junior.474-08
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.63:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:63
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 66 type F601 sn FHTT091BF1F0
+exit
+interface gpon_onu-1/1/4:66
+name -
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.66:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:66
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 67 type F601 sn ITBSCFF0E38D
+exit
+interface gpon_onu-1/1/4:67
+name vanildo.barbi.474-05
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.67:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:67
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 69 type F601 sn ITBSCFF0E2CB
+exit
+interface gpon_onu-1/1/4:69
+name airton.silva.571-05
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.69:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:69
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 70 type F601 sn ITBS2CBF545B
+exit
+interface gpon_onu-1/1/4:70
+name antonia.fernandes.903
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.70:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:70
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 71 type F601 sn ITBSCFF0E3AC
+exit
+interface gpon_onu-1/1/4:71
+name nilton.brasil.094-08
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.71:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:71
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 72 type F601 sn ZNTS2C00F2A7
+exit
+interface gpon_onu-1/1/4:72
+name hellen.bruna.110-02
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.72:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:72
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 73 type F601 sn TPLG63C9D8B3
+exit
+interface gpon_onu-1/1/4:73
+name cleonice.silva.007-05
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.73:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:73
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 78 type F601 sn ITBS5F44718C
+exit
+interface gpon_onu-1/1/4:78
+name maria.rodrigues485-08
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.78:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:78
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 79 type F601 sn ITBS5F834DCF
+exit
+interface gpon_onu-1/1/4:79
+name prc-nubia.santana-03
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 239
+exit
+interface vport-1/1/4.79:1
+service-port 1 user-vlan 239 vlan 239
+exit
+pon-onu-mng gpon_onu-1/1/4:79
+service 1 gemport 1 vlan 239
+vlan port eth_0/1 mode tag vlan 239
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 80 type F601 sn FHTT091BBAB0
+exit
+interface gpon_onu-1/1/4:80
+name fernanda.paiva.094-07
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.80:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:80
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 83 type F601 sn ITBS5FB7D899
+exit
+interface gpon_onu-1/1/4:83
+name jeferson.aparecido.047-05
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.83:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:83
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 84 type F601 sn ITBS5FB7D20B
+exit
+interface gpon_onu-1/1/4:84
+name gustavo.franca.104
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.84:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:84
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 85 type F601 sn ITBS5F72E798
+exit
+interface gpon_onu-1/1/4:85
+name nadir.ascari.008
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.85:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:85
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+conf t
+interface gpon_olt-1/1/4
+onu 86 type F601 sn ITBSCF8C50C9
+exit
+interface gpon_onu-1/1/4:86
+name edmilson.fernandes.061-06
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 578
+exit
+interface vport-1/1/4.86:1
+service-port 1 user-vlan 578 vlan 578
+exit
+pon-onu-mng gpon_onu-1/1/4:86
+service 1 gemport 1 vlan 578
+vlan port eth_0/1 mode tag vlan 578
+end
+
+write
+

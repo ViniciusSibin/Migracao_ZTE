@@ -1,0 +1,122 @@
+conf t
+interface gpon_olt-1/2/16
+onu 1 type F601 sn ZTEGD1BBE9ED
+exit
+interface gpon_onu-1/2/16:1
+name regina.silva.976
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 416
+exit
+interface vport-1/2/16.1:1
+service-port 1 user-vlan 416 vlan 416
+exit
+pon-onu-mng gpon_onu-1/2/16:1
+service 1 gemport 1 vlan 416
+vlan port eth_0/1 mode tag vlan 416
+end
+
+conf t
+interface gpon_olt-1/2/16
+onu 2 type F601 sn ZNTS3F809AF0
+exit
+interface gpon_onu-1/2/16:2
+name rosa.sousa.009
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 416
+exit
+interface vport-1/2/16.2:1
+service-port 1 user-vlan 416 vlan 416
+exit
+pon-onu-mng gpon_onu-1/2/16:2
+service 1 gemport 1 vlan 416
+vlan port eth_0/1 mode tag vlan 416
+end
+
+conf t
+interface gpon_olt-1/2/16
+onu 3 type F601 sn FHTT099200CF
+exit
+interface gpon_onu-1/2/16:3
+name elton.silva.066
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 416
+exit
+interface vport-1/2/16.3:1
+service-port 1 user-vlan 416 vlan 416
+exit
+pon-onu-mng gpon_onu-1/2/16:3
+service 1 gemport 1 vlan 416
+vlan port eth_0/1 mode tag vlan 416
+end
+
+conf t
+interface gpon_olt-1/2/16
+onu 4 type F601 sn TPLGB5DD13B7
+exit
+interface gpon_onu-1/2/16:4
+name singular-sing.ana.felix
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 647
+exit
+interface vport-1/2/16.4:1
+service-port 1 user-vlan 647 vlan 647
+exit
+pon-onu-mng gpon_onu-1/2/16:4
+service 1 gemport 1 vlan 647
+vlan port eth_0/1 mode tag vlan 647
+end
+
+conf t
+interface gpon_olt-1/2/16
+onu 5 type F601 sn ITBS5F43CF5A
+exit
+interface gpon_onu-1/2/16:5
+name roseli.jacob.0533
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 416
+exit
+interface vport-1/2/16.5:1
+service-port 1 user-vlan 416 vlan 416
+exit
+pon-onu-mng gpon_onu-1/2/16:5
+service 1 gemport 1 vlan 416
+vlan port eth_0/1 mode tag vlan 416
+end
+
+conf t
+interface gpon_olt-1/2/16
+onu 6 type F601 sn ITBS5FEC5CE3
+exit
+interface gpon_onu-1/2/16:6
+name quezia.santos.513
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 416
+exit
+interface vport-1/2/16.6:1
+service-port 1 user-vlan 416 vlan 416
+exit
+pon-onu-mng gpon_onu-1/2/16:6
+service 1 gemport 1 vlan 416
+vlan port eth_0/1 mode tag vlan 416
+end
+
+write
+

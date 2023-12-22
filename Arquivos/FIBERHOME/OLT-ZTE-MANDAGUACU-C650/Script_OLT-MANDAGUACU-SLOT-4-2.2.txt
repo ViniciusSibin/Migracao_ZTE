@@ -1,0 +1,102 @@
+conf t
+interface gpon_olt-1/4/2
+onu 1 type F601 sn ITBS5F446F60
+exit
+interface gpon_onu-1/4/2:1
+name eloisa.santos.107
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 418
+exit
+interface vport-1/4/2.1:1
+service-port 1 user-vlan 418 vlan 418
+exit
+pon-onu-mng gpon_onu-1/4/2:1
+service 1 gemport 1 vlan 418
+vlan port eth_0/1 mode tag vlan 418
+end
+
+conf t
+interface gpon_olt-1/4/2
+onu 2 type F601 sn ITBSCF8DC66A
+exit
+interface gpon_onu-1/4/2:2
+name maria.joana.005-07
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 418
+exit
+interface vport-1/4/2.2:1
+service-port 1 user-vlan 418 vlan 418
+exit
+pon-onu-mng gpon_onu-1/4/2:2
+service 1 gemport 1 vlan 418
+vlan port eth_0/1 mode tag vlan 418
+end
+
+conf t
+interface gpon_olt-1/4/2
+onu 3 type F601 sn ITBSF1AA0D57
+exit
+interface gpon_onu-1/4/2:3
+name fabio.silva.093
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 418
+exit
+interface vport-1/4/2.3:1
+service-port 1 user-vlan 418 vlan 418
+exit
+pon-onu-mng gpon_onu-1/4/2:3
+service 1 gemport 1 vlan 418
+vlan port eth_0/1 mode tag vlan 418
+end
+
+conf t
+interface gpon_olt-1/4/2
+onu 4 type F601 sn ITBS32BC58F9
+exit
+interface gpon_onu-1/4/2:4
+name vagneia.coelho008
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 418
+exit
+interface vport-1/4/2.4:1
+service-port 1 user-vlan 418 vlan 418
+exit
+pon-onu-mng gpon_onu-1/4/2:4
+service 1 gemport 1 vlan 418
+vlan port eth_0/1 mode tag vlan 418
+end
+
+conf t
+interface gpon_olt-1/4/2
+onu 5 type F601 sn ITBS5FCE6A50
+exit
+interface gpon_onu-1/4/2:5
+name rosilva.alves.098
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 418
+exit
+interface vport-1/4/2.5:1
+service-port 1 user-vlan 418 vlan 418
+exit
+pon-onu-mng gpon_onu-1/4/2:5
+service 1 gemport 1 vlan 418
+vlan port eth_0/1 mode tag vlan 418
+end
+
+write
+

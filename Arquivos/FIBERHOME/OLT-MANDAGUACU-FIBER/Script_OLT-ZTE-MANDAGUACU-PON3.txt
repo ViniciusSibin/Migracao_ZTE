@@ -1,0 +1,242 @@
+conf t
+interface gpon_olt-1/3/3
+onu 1 type F601 sn ZTEGD1BC55CB
+exit
+interface gpon_onu-1/3/3:1
+name marcos.penasso.038-01
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 417
+exit
+interface vport-1/3/3.1:1
+service-port 1 user-vlan 417 vlan 417
+exit
+pon-onu-mng gpon_onu-1/3/3:1
+service 1 gemport 1 vlan 417
+vlan port eth_0/1 mode tag vlan 417
+end
+
+conf t
+interface gpon_olt-1/3/3
+onu 2 type F601 sn FHTT0012A880
+exit
+interface gpon_onu-1/3/3:2
+name ricardo.luiz
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 417
+exit
+interface vport-1/3/3.2:1
+service-port 1 user-vlan 417 vlan 417
+exit
+pon-onu-mng gpon_onu-1/3/3:2
+service 1 gemport 1 vlan 417
+vlan port eth_0/1 mode tag vlan 417
+end
+
+conf t
+interface gpon_olt-1/3/3
+onu 3 type F601 sn ZTEGD1CA6511
+exit
+interface gpon_onu-1/3/3:3
+name emily.santos.141
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 417
+exit
+interface vport-1/3/3.3:1
+service-port 1 user-vlan 417 vlan 417
+exit
+pon-onu-mng gpon_onu-1/3/3:3
+service 1 gemport 1 vlan 417
+vlan port eth_0/1 mode tag vlan 417
+end
+
+conf t
+interface gpon_olt-1/3/3
+onu 4 type F601 sn FHTT919B5D98
+exit
+interface gpon_onu-1/3/3:4
+name fabio.santos.072
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 417
+exit
+interface vport-1/3/3.4:1
+service-port 1 user-vlan 417 vlan 417
+exit
+pon-onu-mng gpon_onu-1/3/3:4
+service 1 gemport 1 vlan 417
+vlan port eth_0/1 mode tag vlan 417
+end
+
+conf t
+interface gpon_olt-1/3/3
+onu 5 type F601 sn FHTT094A8032
+exit
+interface gpon_onu-1/3/3:5
+name talita.teixeira.856-01
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 417
+exit
+interface vport-1/3/3.5:1
+service-port 1 user-vlan 417 vlan 417
+exit
+pon-onu-mng gpon_onu-1/3/3:5
+service 1 gemport 1 vlan 417
+vlan port eth_0/1 mode tag vlan 417
+end
+
+conf t
+interface gpon_olt-1/3/3
+onu 6 type F601 sn MONU008B8729
+exit
+interface gpon_onu-1/3/3:6
+name aleksandro.santos.029-04
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 417
+exit
+interface vport-1/3/3.6:1
+service-port 1 user-vlan 417 vlan 417
+exit
+pon-onu-mng gpon_onu-1/3/3:6
+service 1 gemport 1 vlan 417
+vlan port eth_0/1 mode tag vlan 417
+end
+
+conf t
+interface gpon_olt-1/3/3
+onu 7 type F601 sn ITBS2C717981
+exit
+interface gpon_onu-1/3/3:7
+name makison.correa.088-04
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 417
+exit
+interface vport-1/3/3.7:1
+service-port 1 user-vlan 417 vlan 417
+exit
+pon-onu-mng gpon_onu-1/3/3:7
+service 1 gemport 1 vlan 417
+vlan port eth_0/1 mode tag vlan 417
+end
+
+conf t
+interface gpon_olt-1/3/3
+onu 8 type F601 sn ZTEGCED1FD81
+exit
+interface gpon_onu-1/3/3:8
+name alexandre.santos.030
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 417
+exit
+interface vport-1/3/3.8:1
+service-port 1 user-vlan 417 vlan 417
+exit
+pon-onu-mng gpon_onu-1/3/3:8
+service 1 gemport 1 vlan 417
+vlan port eth_0/1 mode tag vlan 417
+end
+
+conf t
+interface gpon_olt-1/3/3
+onu 9 type F601 sn FHTT0925E0C0
+exit
+interface gpon_onu-1/3/3:9
+name alisson.silva.139
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 417
+exit
+interface vport-1/3/3.9:1
+service-port 1 user-vlan 417 vlan 417
+exit
+pon-onu-mng gpon_onu-1/3/3:9
+service 1 gemport 1 vlan 417
+vlan port eth_0/1 mode tag vlan 417
+end
+
+conf t
+interface gpon_olt-1/3/3
+onu 13 type F601 sn ITBS2C5CA5F5
+exit
+interface gpon_onu-1/3/3:13
+name valdemar.silva.801-07
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 417
+exit
+interface vport-1/3/3.13:1
+service-port 1 user-vlan 417 vlan 417
+exit
+pon-onu-mng gpon_onu-1/3/3:13
+service 1 gemport 1 vlan 417
+vlan port eth_0/1 mode tag vlan 417
+end
+
+conf t
+interface gpon_olt-1/3/3
+onu 15 type F601 sn ITBS5FED8571
+exit
+interface gpon_onu-1/3/3:15
+name elianes.silva.795
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 417
+exit
+interface vport-1/3/3.15:1
+service-port 1 user-vlan 417 vlan 417
+exit
+pon-onu-mng gpon_onu-1/3/3:15
+service 1 gemport 1 vlan 417
+vlan port eth_0/1 mode tag vlan 417
+end
+
+conf t
+interface gpon_olt-1/3/3
+onu 17 type F601 sn TPLGB5DD1738
+exit
+interface gpon_onu-1/3/3:17
+name singular-joao.vitor-04
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 647
+exit
+interface vport-1/3/3.17:1
+service-port 1 user-vlan 647 vlan 647
+exit
+pon-onu-mng gpon_onu-1/3/3:17
+service 1 gemport 1 vlan 647
+vlan port eth_0/1 mode tag vlan 647
+end
+
+write
+

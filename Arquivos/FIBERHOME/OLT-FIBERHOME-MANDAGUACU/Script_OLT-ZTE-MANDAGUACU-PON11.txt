@@ -1,0 +1,122 @@
+conf t
+interface gpon_olt-1/1/11
+onu 1 type F601 sn ZTEGD1BC5DA9
+exit
+interface gpon_onu-1/1/11:1
+name maria.mata.067
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 413
+exit
+interface vport-1/1/11.1:1
+service-port 1 user-vlan 413 vlan 413
+exit
+pon-onu-mng gpon_onu-1/1/11:1
+service 1 gemport 1 vlan 413
+vlan port eth_0/1 mode tag vlan 413
+end
+
+conf t
+interface gpon_olt-1/1/11
+onu 2 type F601 sn ITBSF153B7D3
+exit
+interface gpon_onu-1/1/11:2
+name joel.silva.000
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 413
+exit
+interface vport-1/1/11.2:1
+service-port 1 user-vlan 413 vlan 413
+exit
+pon-onu-mng gpon_onu-1/1/11:2
+service 1 gemport 1 vlan 413
+vlan port eth_0/1 mode tag vlan 413
+end
+
+conf t
+interface gpon_olt-1/1/11
+onu 3 type F601 sn ITBSE8F046B7
+exit
+interface gpon_onu-1/1/11:3
+name rosalina.oliveira.813
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 413
+exit
+interface vport-1/1/11.3:1
+service-port 1 user-vlan 413 vlan 413
+exit
+pon-onu-mng gpon_onu-1/1/11:3
+service 1 gemport 1 vlan 413
+vlan port eth_0/1 mode tag vlan 413
+end
+
+conf t
+interface gpon_olt-1/1/11
+onu 4 type F601 sn ITBS5F79CC3B
+exit
+interface gpon_onu-1/1/11:4
+name ana.souza.114
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 413
+exit
+interface vport-1/1/11.4:1
+service-port 1 user-vlan 413 vlan 413
+exit
+pon-onu-mng gpon_onu-1/1/11:4
+service 1 gemport 1 vlan 413
+vlan port eth_0/1 mode tag vlan 413
+end
+
+conf t
+interface gpon_olt-1/1/11
+onu 5 type F601 sn ITBS8B68451D
+exit
+interface gpon_onu-1/1/11:5
+name luzia.oliveira.150
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 413
+exit
+interface vport-1/1/11.5:1
+service-port 1 user-vlan 413 vlan 413
+exit
+pon-onu-mng gpon_onu-1/1/11:5
+service 1 gemport 1 vlan 413
+vlan port eth_0/1 mode tag vlan 413
+end
+
+conf t
+interface gpon_olt-1/1/11
+onu 6 type F601 sn ITBS5F448191
+exit
+interface gpon_onu-1/1/11:6
+name jovelina.oliveira.795
+vport-mode manual
+vport 1 map-type vlan
+tcont 1 profile 1G
+gemport 1 tcont 1
+vport-map 1 1 vlan 413
+exit
+interface vport-1/1/11.6:1
+service-port 1 user-vlan 413 vlan 413
+exit
+pon-onu-mng gpon_onu-1/1/11:6
+service 1 gemport 1 vlan 413
+vlan port eth_0/1 mode tag vlan 413
+end
+
+write
+
